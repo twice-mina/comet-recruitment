@@ -1,45 +1,48 @@
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
-import { AuthProvider } from "@/components/auth-provider"
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
 
-const inter = Inter({ subsets: ["latin"] })
-
-// App configuration from environment variables
-const appName = process.env.NEXT_PUBLIC_APP_NAME || "My App"
-const appDescription = process.env.NEXT_PUBLIC_APP_DESCRIPTION ||
-  "A modern web application built with Next.js and Firebase"
-const appUrl = process.env.NEXT_PUBLIC_APP_URL || "https://example.com"
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: appName,
-  description: appDescription,
+  title: {
+    default: "TPA Careers — AI Jobs & Prompt Engineering Roles",
+    template: "%s | TPA Careers",
+  },
+  description:
+    "Find your next AI career. The Prompt Academy connects certified AI professionals with top employers seeking prompt engineering, machine learning, and AI talent.",
   openGraph: {
-    title: appName,
-    description: appDescription,
-    url: appUrl,
-    siteName: appName,
+    title: "TPA Careers — AI Jobs & Prompt Engineering Roles",
+    description:
+      "Find your next AI career. The Prompt Academy connects certified AI professionals with top employers.",
+    url: "https://careers.thepromptacademy.com",
+    siteName: "TPA Careers",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: appName,
-    description: appDescription,
+    title: "TPA Careers — AI Jobs & Prompt Engineering Roles",
+    description:
+      "Find your next AI career. The Prompt Academy connects certified AI professionals with top employers.",
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AuthProvider>
-          {children}
-        </AuthProvider>
+        <div className="min-h-screen flex flex-col">
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
-  )
+  );
 }

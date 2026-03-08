@@ -1,107 +1,285 @@
-"use client"
+"use client";
 
-import { useState, Suspense } from "react"
-import { useRouter, useSearchParams } from "next/navigation"
-import { signInWithGoogle } from "@/lib/firebase/auth"
+import Link from "next/link";
+import { SearchBar } from "@/components/search-bar";
+import { JobCard } from "@/components/job-card";
+import { mockJobs } from "@/lib/mock-data";
+import { JOB_CATEGORIES } from "@/lib/types";
 
-function HomePageContent() {
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState("")
-  const router = useRouter()
-  const searchParams = useSearchParams()
-
-  const appName = process.env.NEXT_PUBLIC_APP_NAME || "My App"
-  const appDescription = process.env.NEXT_PUBLIC_APP_DESCRIPTION || "A modern web application"
-
-  // Get redirect URL from query params
-  const redirectUrl = searchParams.get("redirect") || "/dashboard"
-
-  const handleGoogleSignIn = async () => {
-    setError("")
-    setLoading(true)
-
-    try {
-      await signInWithGoogle()
-      router.push(redirectUrl)
-    } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : "Google sign-in failed"
-      if (errorMessage.includes("Sign-in cancelled")) {
-        setError("Sign-in was cancelled.")
-      } else {
-        setError(errorMessage)
-      }
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  return (
-    <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4">
-      <div className="max-w-md w-full text-center space-y-8">
-        {/* App Name */}
-        <div className="space-y-2">
-          <h1 className="text-3xl md:text-4xl font-bold text-black tracking-tight">
-            {appName}
-          </h1>
-          <p className="text-gray-600">
-            {appDescription}
-          </p>
-        </div>
-
-        {/* Google Sign-In Button */}
-        <button
-          onClick={handleGoogleSignIn}
-          disabled={loading}
-          className="w-full group flex items-center justify-center gap-3 px-6 py-4 border border-black bg-white text-black font-medium text-base transition-all duration-200 hover:bg-black hover:text-white disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:text-black"
-        >
-          {loading ? (
-            <>
-              <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-              </svg>
-              <span>Signing in...</span>
-            </>
-          ) : (
-            <>
-              <svg width="20" height="20" viewBox="0 0 18 18">
-                <path fill="currentColor" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.48h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z"/>
-                <path fill="currentColor" d="M9 18c2.43 0 4.467-.806 5.96-2.18l-2.908-2.258c-.806.54-1.837.86-3.052.86-2.35 0-4.34-1.588-5.052-3.723H.957v2.332C2.438 15.983 5.482 18 9 18z"/>
-                <path fill="currentColor" d="M3.948 10.71c-.18-.54-.282-1.117-.282-1.71s.102-1.17.282-1.71V4.958H.957C.348 6.173 0 7.55 0 9s.348 2.827.957 4.042l2.991-2.332z"/>
-                <path fill="currentColor" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.958L3.948 7.29C4.66 5.153 6.65 3.58 9 3.58z"/>
-              </svg>
-              <span>Continue with Google</span>
-            </>
-          )}
-        </button>
-
-        {/* Error message */}
-        {error && (
-          <p className="text-sm text-red-600">
-            {error}
-          </p>
-        )}
-
-        {/* Footer */}
-        <p className="text-xs text-gray-400 pt-8">
-          Powered by Next.js & Firebase
-        </p>
-      </div>
-    </div>
-  )
-}
+const categoryIcons: Record<string, string> = {
+  "AI Engineering": "🤖",
+  "Prompt Engineering": "✍️",
+  "Data Science": "📊",
+  "Machine Learning": "🧠",
+  "Product Management": "📋",
+  "Content & Marketing": "📝",
+  Research: "🔬",
+  Operations: "⚙️",
+};
 
 export default function HomePage() {
+  const featuredJobs = mockJobs.filter((j) => j.is_active).slice(0, 4);
+  const jobCountByCategory = JOB_CATEGORIES.map((cat) => ({
+    name: cat,
+    icon: categoryIcons[cat] || "💼",
+    count: mockJobs.filter((j) => j.category === cat && j.is_active).length,
+  }));
+
   return (
-    <Suspense fallback={
-      <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4">
-        <div className="text-center">
-          <div className="w-12 h-12 border-4 border-black border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-          <p className="text-sm text-gray-500">Loading...</p>
+    <div>
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-800">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0djZoLTJ2LTZoMnptMC0zMHY2aC0yVjRoMnptMCAxMHY2aC0ydi02aDJ6bTAgMTB2NmgtMnYtNmgyem0xNiA0djZoLTJ2LTZoMnptMC0zMHY2aC0yVjRoMnptMCAxMHY2aC0ydi02aDJ6bTAgMTB2NmgtMnYtNmgyem0tMzIgNHY2aC0ydi02aDJ6bTAtMzB2NmgtMlY0aDJ6bTAgMTB2NmgtMnYtNmgyem0wIDEwdjZoLTJ2LTZoMnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30" />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36">
+          <div className="text-center max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-sm mb-6">
+              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+              {mockJobs.filter((j) => j.is_active).length} open positions
+            </div>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
+              Find Your Next{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-200 to-indigo-200">
+                AI Career
+              </span>
+            </h1>
+            <p className="text-lg sm:text-xl text-indigo-100 mb-10 max-w-2xl mx-auto">
+              The Prompt Academy connects certified AI professionals with
+              forward-thinking employers. Discover roles in prompt engineering,
+              machine learning, and beyond.
+            </p>
+
+            {/* Search */}
+            <div className="max-w-2xl mx-auto">
+              <SearchBar size="large" />
+            </div>
+
+            {/* Quick stats */}
+            <div className="flex items-center justify-center gap-8 mt-10 text-sm text-indigo-200">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-white">500+</div>
+                <div>Companies Hiring</div>
+              </div>
+              <div className="w-px h-10 bg-white/20" />
+              <div className="text-center">
+                <div className="text-2xl font-bold text-white">2,000+</div>
+                <div>Jobs Posted</div>
+              </div>
+              <div className="w-px h-10 bg-white/20" />
+              <div className="text-center">
+                <div className="text-2xl font-bold text-white">10k+</div>
+                <div>TPA Graduates</div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    }>
-      <HomePageContent />
-    </Suspense>
-  )
+      </section>
+
+      {/* Categories */}
+      <section className="py-16 sm:py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+              Browse by Category
+            </h2>
+            <p className="text-gray-600 max-w-xl mx-auto">
+              Explore AI roles across disciplines — from hands-on engineering to
+              strategy and research.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {jobCountByCategory.map((cat) => (
+              <Link
+                key={cat.name}
+                href={`/jobs?category=${encodeURIComponent(cat.name)}`}
+                className="group flex flex-col items-center p-6 rounded-xl border border-gray-200 hover:border-indigo-300 hover:shadow-md transition-all duration-200 bg-white"
+              >
+                <span className="text-3xl mb-3">{cat.icon}</span>
+                <span className="text-sm font-semibold text-gray-900 text-center mb-1">
+                  {cat.name}
+                </span>
+                <span className="text-xs text-gray-500">
+                  {cat.count} {cat.count === 1 ? "job" : "jobs"}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Jobs */}
+      <section className="py-16 sm:py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+                Featured Jobs
+              </h2>
+              <p className="text-gray-600">
+                Latest opportunities from top AI companies
+              </p>
+            </div>
+            <Link
+              href="/jobs"
+              className="hidden sm:inline-flex items-center gap-1 text-sm font-medium text-indigo-600 hover:text-indigo-700"
+            >
+              View all jobs
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </Link>
+          </div>
+
+          <div className="space-y-4">
+            {featuredJobs.map((job) => (
+              <JobCard key={job.id} job={job} />
+            ))}
+          </div>
+
+          <div className="text-center mt-8 sm:hidden">
+            <Link
+              href="/jobs"
+              className="inline-flex items-center gap-1 text-sm font-medium text-indigo-600 hover:text-indigo-700"
+            >
+              View all jobs →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Why TPA */}
+      <section className="py-16 sm:py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+              Why Hire TPA-Certified Talent?
+            </h2>
+            <p className="text-gray-600 max-w-xl mx-auto">
+              The Prompt Academy certification is the gold standard for AI
+              professionals.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-3 gap-8">
+            <div className="text-center p-6">
+              <div className="w-12 h-12 rounded-xl bg-indigo-100 flex items-center justify-center mx-auto mb-4">
+                <svg
+                  className="w-6 h-6 text-indigo-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                Verified Skills
+              </h3>
+              <p className="text-sm text-gray-600">
+                TPA graduates have demonstrated proficiency in prompt
+                engineering, AI workflows, and responsible AI practices through
+                rigorous assessment.
+              </p>
+            </div>
+
+            <div className="text-center p-6">
+              <div className="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center mx-auto mb-4">
+                <svg
+                  className="w-6 h-6 text-purple-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                Production Ready
+              </h3>
+              <p className="text-sm text-gray-600">
+                Our curriculum focuses on real-world applications. Graduates can
+                hit the ground running with practical experience in AI tool
+                integration and optimization.
+              </p>
+            </div>
+
+            <div className="text-center p-6">
+              <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center mx-auto mb-4">
+                <svg
+                  className="w-6 h-6 text-green-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                Growing Network
+              </h3>
+              <p className="text-sm text-gray-600">
+                Access a community of 10,000+ AI professionals. TPA alumni work
+                at leading tech companies and innovative startups around the
+                globe.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 sm:py-20 bg-gradient-to-br from-indigo-600 to-purple-700">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+            Ready to Start Your AI Career?
+          </h2>
+          <p className="text-indigo-100 mb-8 max-w-xl mx-auto">
+            Whether you&apos;re a TPA graduate or an employer looking for
+            AI-skilled talent, we&apos;re here to help you connect.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/jobs"
+              className="inline-flex items-center justify-center px-8 py-3 rounded-xl bg-white text-indigo-700 font-semibold hover:bg-indigo-50 transition-colors"
+            >
+              Browse All Jobs
+            </Link>
+            <a
+              href="https://thepromptacademy.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-3 rounded-xl border-2 border-white/30 text-white font-semibold hover:bg-white/10 transition-colors"
+            >
+              Get TPA Certified
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 }
