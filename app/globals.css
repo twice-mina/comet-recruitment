@@ -5,8 +5,8 @@
 @import "tw-animate-css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0a0a0a;
+  --background: rgb(250, 248, 243);
+  --foreground: rgb(26, 26, 26);
   --radius: 0.625rem;
 }
 
@@ -15,7 +15,10 @@
     @apply outline-none;
   }
   body {
-    @apply bg-white text-gray-900 antialiased;
+    @apply bg-tpa-cream text-tpa-text antialiased font-body;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
   }
 }
 

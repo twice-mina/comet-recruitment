@@ -27,7 +27,7 @@ export function SearchBar({
       <div className="relative">
         <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
           <svg
-            className={`${isLarge ? "w-5 h-5" : "w-4 h-4"} text-gray-400`}
+            className={`${isLarge ? "w-5 h-5" : "w-4 h-4"} text-tpa-text/40`}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -45,14 +45,14 @@ export function SearchBar({
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search jobs by title, company, or location..."
-          className={`w-full rounded-xl border border-gray-300 bg-white text-gray-900 placeholder-gray-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all ${
+          className={`w-full rounded-xl border border-tpa-border bg-white text-tpa-text placeholder-tpa-text/40 focus:border-tpa-gold focus:ring-2 focus:ring-tpa-gold/20 outline-none transition-all font-body ${
             isLarge ? "pl-12 pr-32 py-4 text-base" : "pl-10 pr-24 py-2.5 text-sm"
           }`}
         />
         <div className="absolute inset-y-0 right-0 flex items-center pr-2">
           <button
             type="submit"
-            className={`rounded-lg bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition-colors ${
+            className={`rounded-lg bg-tpa-gold text-tpa-dark font-semibold font-body hover:bg-tpa-gold-light transition-colors ${
               isLarge ? "px-6 py-2.5 text-sm" : "px-4 py-1.5 text-xs"
             }`}
           >

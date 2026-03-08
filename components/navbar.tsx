@@ -16,16 +16,16 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+    <nav className="sticky top-0 z-50 bg-tpa-dark/95 backdrop-blur-md border-b border-tpa-dark-secondary">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center">
-              <span className="text-white font-bold text-sm">T</span>
+          <Link href="/" className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-lg bg-tpa-gold flex items-center justify-center">
+              <span className="text-tpa-dark font-bold text-sm font-heading">T</span>
             </div>
-            <span className="font-bold text-lg text-gray-900">
-              TPA <span className="text-indigo-600">Careers</span>
+            <span className="font-heading font-bold text-lg text-tpa-hero-text">
+              TPA <span className="text-tpa-gold">Careers</span>
             </span>
           </Link>
 
@@ -41,10 +41,10 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
+                    "px-4 py-2 rounded-lg text-sm font-medium font-body transition-colors",
                     isActive
-                      ? "bg-indigo-50 text-indigo-700"
-                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                      ? "bg-tpa-dark-secondary text-tpa-gold"
+                      : "text-tpa-hero-text/70 hover:text-tpa-hero-text hover:bg-tpa-dark-secondary/50"
                   )}
                 >
                   {link.label}
@@ -57,16 +57,16 @@ export function Navbar() {
           <div className="hidden md:block">
             <Link
               href="/jobs"
-              className="inline-flex items-center px-4 py-2 rounded-lg bg-indigo-600 text-white text-sm font-medium hover:bg-indigo-700 transition-colors"
+              className="inline-flex items-center px-5 py-2 rounded-lg bg-tpa-gold text-tpa-dark text-sm font-semibold font-body hover:bg-tpa-gold-light transition-colors"
             >
-              Find Talent
+              Post a Job
             </Link>
           </div>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100"
+            className="md:hidden p-2 rounded-lg text-tpa-hero-text/70 hover:bg-tpa-dark-secondary"
           >
             <svg
               className="w-6 h-6"
@@ -107,16 +107,23 @@ export function Navbar() {
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
                   className={cn(
-                    "block px-4 py-2 rounded-lg text-sm font-medium transition-colors",
+                    "block px-4 py-2 rounded-lg text-sm font-medium font-body transition-colors",
                     isActive
-                      ? "bg-indigo-50 text-indigo-700"
-                      : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+                      ? "bg-tpa-dark-secondary text-tpa-gold"
+                      : "text-tpa-hero-text/70 hover:text-tpa-hero-text hover:bg-tpa-dark-secondary/50"
                   )}
                 >
                   {link.label}
                 </Link>
               );
             })}
+            <Link
+              href="/jobs"
+              onClick={() => setMobileOpen(false)}
+              className="block px-4 py-2 rounded-lg text-sm font-semibold font-body bg-tpa-gold text-tpa-dark text-center mt-2"
+            >
+              Post a Job
+            </Link>
           </div>
         )}
       </div>

@@ -21,18 +21,20 @@ export function JobFilters() {
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-5">
       {/* Category filter */}
       <div>
-        <h3 className="text-sm font-medium text-gray-700 mb-2">Category</h3>
+        <h3 className="text-sm font-semibold font-heading text-tpa-text mb-2.5">
+          <span className="text-tpa-gold mr-1.5">◆</span>Category
+        </h3>
         <div className="flex flex-wrap gap-2">
           <button
             onClick={() => updateFilter("category", "")}
             className={cn(
-              "px-3 py-1.5 rounded-lg text-xs font-medium transition-colors",
+              "px-3 py-1.5 rounded-lg text-xs font-medium font-body transition-colors",
               !currentCategory
-                ? "bg-indigo-600 text-white"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                ? "bg-tpa-gold text-tpa-dark"
+                : "bg-white text-tpa-text/70 border border-tpa-border hover:border-tpa-gold/40"
             )}
           >
             All
@@ -44,10 +46,10 @@ export function JobFilters() {
                 updateFilter("category", currentCategory === cat ? "" : cat)
               }
               className={cn(
-                "px-3 py-1.5 rounded-lg text-xs font-medium transition-colors",
+                "px-3 py-1.5 rounded-lg text-xs font-medium font-body transition-colors",
                 currentCategory === cat
-                  ? "bg-indigo-600 text-white"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  ? "bg-tpa-gold text-tpa-dark"
+                  : "bg-white text-tpa-text/70 border border-tpa-border hover:border-tpa-gold/40"
               )}
             >
               {cat}
@@ -58,15 +60,17 @@ export function JobFilters() {
 
       {/* Job type filter */}
       <div>
-        <h3 className="text-sm font-medium text-gray-700 mb-2">Work Type</h3>
+        <h3 className="text-sm font-semibold font-heading text-tpa-text mb-2.5">
+          <span className="text-tpa-gold mr-1.5">◆</span>Work Type
+        </h3>
         <div className="flex flex-wrap gap-2">
           <button
             onClick={() => updateFilter("type", "")}
             className={cn(
-              "px-3 py-1.5 rounded-lg text-xs font-medium transition-colors",
+              "px-3 py-1.5 rounded-lg text-xs font-medium font-body transition-colors",
               !currentType
-                ? "bg-indigo-600 text-white"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                ? "bg-tpa-gold text-tpa-dark"
+                : "bg-white text-tpa-text/70 border border-tpa-border hover:border-tpa-gold/40"
             )}
           >
             All
@@ -78,10 +82,10 @@ export function JobFilters() {
                 updateFilter("type", currentType === t.value ? "" : t.value)
               }
               className={cn(
-                "px-3 py-1.5 rounded-lg text-xs font-medium transition-colors capitalize",
+                "px-3 py-1.5 rounded-lg text-xs font-medium font-body transition-colors capitalize",
                 currentType === t.value
-                  ? "bg-indigo-600 text-white"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  ? "bg-tpa-gold text-tpa-dark"
+                  : "bg-white text-tpa-text/70 border border-tpa-border hover:border-tpa-gold/40"
               )}
             >
               {t.label}

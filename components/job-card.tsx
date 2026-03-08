@@ -6,16 +6,16 @@ import { cn } from "@/lib/utils";
 export function JobCard({ job }: { job: Job }) {
   return (
     <Link href={`/jobs/${job.id}`} className="block group">
-      <div className="bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all duration-200">
+      <div className="bg-white rounded-xl border border-tpa-border p-6 hover:border-tpa-gold/40 hover:shadow-md transition-all duration-200">
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
           {/* Main info */}
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 flex-wrap mb-2">
-              <h3 className="text-lg font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors">
+              <h3 className="text-lg font-semibold font-heading text-tpa-text group-hover:text-tpa-gold-dark transition-colors">
                 {job.title}
               </h3>
               {job.tpa_certification_preferred && (
-                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-700">
+                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium font-body bg-tpa-gold/15 text-tpa-gold-dark border border-tpa-gold/30">
                   <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                     <path
                       fillRule="evenodd"
@@ -23,27 +23,27 @@ export function JobCard({ job }: { job: Job }) {
                       clipRule="evenodd"
                     />
                   </svg>
-                  TPA Preferred
+                  TPA Certified
                 </span>
               )}
             </div>
 
-            <div className="flex items-center gap-3 text-sm text-gray-600 mb-3">
-              <span className="font-medium text-gray-900">{job.company}</span>
-              <span className="text-gray-300">•</span>
+            <div className="flex items-center gap-3 text-sm font-body text-tpa-text/60 mb-3">
+              <span className="font-medium text-tpa-text">{job.company}</span>
+              <span className="text-tpa-border">•</span>
               <span>{job.location}</span>
             </div>
 
             <div className="flex items-center gap-2 flex-wrap">
               <span
                 className={cn(
-                  "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize",
+                  "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium font-body capitalize",
                   jobTypeBadgeColor(job.job_type)
                 )}
               >
                 {job.job_type}
               </span>
-              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-700">
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium font-body bg-tpa-cream text-tpa-text/70 border border-tpa-border">
                 {job.category}
               </span>
             </div>
@@ -51,10 +51,10 @@ export function JobCard({ job }: { job: Job }) {
 
           {/* Salary & date */}
           <div className="sm:text-right flex sm:flex-col items-center sm:items-end gap-2 sm:gap-1">
-            <span className="text-sm font-semibold text-gray-900">
+            <span className="text-sm font-semibold font-body text-tpa-text">
               {formatSalary(job.salary_min, job.salary_max)}
             </span>
-            <span className="text-xs text-gray-500">
+            <span className="text-xs font-body text-tpa-text/50">
               {formatDate(job.posted_date)}
             </span>
           </div>
