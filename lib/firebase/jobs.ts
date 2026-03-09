@@ -32,13 +32,25 @@ function docToJob(id: string, data: Record<string, unknown>): Job {
     dateStr = String(postedDate || new Date().toISOString().split("T")[0])
   }
 
+  const lastVerified = data.last_verified
+  let lastVerifiedStr: string
+  if (lastVerified instanceof Timestamp) {
+    lastVerifiedStr = lastVerified.toDate().toISOString().split("T")[0]
+  } else if (lastVerified && typeof lastVerified === "object" && "seconds" in lastVerified) {
+    lastVerifiedStr = new Date((lastVerified as { seconds: number }).seconds * 1000).toISOString().split("T")[0]
+  } else {
+    lastVerifiedStr = String(lastVerified || dateStr)
+  }
+
   return {
     id,
     title: String(data.title || ""),
     company: String(data.company || ""),
     location: String(data.location || ""),
     description: String(data.description || ""),
+    responsibilities: Array.isArray(data.responsibilities) ? data.responsibilities : [],
     requirements: Array.isArray(data.requirements) ? data.requirements : [],
+    preferred_qualifications: Array.isArray(data.preferred_qualifications) ? data.preferred_qualifications : [],
     salary_min: Number(data.salary_min || 0),
     salary_max: Number(data.salary_max || 0),
     job_type: (data.job_type as Job["job_type"]) || "remote",
@@ -47,6 +59,15 @@ function docToJob(id: string, data: Record<string, unknown>): Job {
     is_active: Boolean(data.is_active),
     tpa_certification_preferred: Boolean(data.tpa_certification_preferred),
     apply_url: String(data.apply_url || ""),
+    experience_level: (data.experience_level as Job["experience_level"]) || "mid",
+    employer_confidential: Boolean(data.employer_confidential),
+    verification_status: (data.verification_status as Job["verification_status"]) || "pending",
+    last_verified: lastVerifiedStr,
+    certification_tier: (data.certification_tier as Job["certification_tier"]) || "core",
+    skill_categories: Array.isArray(data.skill_categories) ? data.skill_categories : [],
+    source_url: String(data.source_url || ""),
+    compensation_details: data.compensation_details ? String(data.compensation_details) : undefined,
+    benefits: Array.isArray(data.benefits) ? data.benefits : undefined,
   }
 }
 

@@ -1,0 +1,1065 @@
+1. The business model
+What Prompt Academy Jobs is
+
+A niche jobs platform that:
+
+curates real external jobs
+
+lets users browse them like a normal job board
+
+requires Prompt Academy AI proficiency screening before applying through your channel
+
+certifies candidates who meet your standard
+
+may vouch for or submit certified candidates through your application channel
+
+recommends training to candidates who do not meet the standard yet
+
+What it is not
+
+It is not:
+
+pretending Prompt Academy is the employer
+
+saying the employer requires the certificate unless that is actually true
+
+guaranteeing interviews or offers
+
+forcing a misleading pay-to-apply setup
+
+The operating idea is:
+
+“This is a real external job. Prompt Academy has its own application channel and only allows certified candidates through that channel.”
+
+2. The product architecture
+
+You really have four products in one:
+
+A. Jobs marketplace
+
+Public-facing job discovery experience.
+
+B. AI proficiency screening engine
+
+Your gatekeeper layer that determines whether someone can proceed through your application channel.
+
+C. Certification layer
+
+The formal output of passing your proficiency bar.
+
+D. Candidate pipeline / talent network
+
+Where certified candidates are tracked, ranked, and potentially submitted or vouched for.
+
+That means the site should be built around these main areas:
+
+/jobs
+
+/jobs/[slug]
+
+/screening
+
+/certification
+
+/apply
+
+/dashboard
+
+/resources
+
+/employers
+
+/admin
+
+3. The core user promise
+
+The user-facing promise should be:
+
+For job seekers
+
+find AI-relevant jobs
+
+understand which roles are a fit
+
+apply through a curated channel
+
+prove AI proficiency
+
+get stronger positioning through Prompt Academy’s process
+
+For Prompt Academy
+
+capture relevant job-seeking traffic
+
+pre-qualify candidates
+
+build audience and first-party data
+
+create a talent network
+
+later monetize via placements, partnerships, training, or premium screening
+
+4. The end-to-end user flow
+
+There are really three major user paths.
+
+Path 1: Qualified candidate who passes
+
+lands on jobs page
+
+browses listings
+
+opens job detail page
+
+clicks “Apply Through Prompt Academy”
+
+sees application requirement page
+
+completes AI proficiency screening
+
+passes
+
+gets Prompt Academy certification
+
+completes application
+
+enters candidate dashboard
+
+application is reviewed / submitted / referred
+
+receives updates and next steps
+
+Path 2: Candidate who fails but is still valuable
+
+lands on jobs page
+
+opens role
+
+tries to apply
+
+completes screening
+
+fails threshold
+
+sees “not yet eligible through Prompt Academy channel”
+
+receives specific skill-gap feedback
+
+sees recommended courses / training
+
+enrolls in training
+
+retakes screening
+
+passes later
+
+applies
+
+Path 3: Candidate who does not want your channel
+
+lands on job page
+
+reads full job
+
+decides not to go through Prompt Academy screening
+
+either leaves or uses direct external apply route if you choose to offer one
+
+That third path is strategically useful because it makes the platform feel more real and less coercive.
+
+5. The ideal UX structure
+A. Homepage
+Goal
+
+Feel like a real niche job platform first.
+
+Sections
+1. Hero
+
+headline around AI-forward jobs and career readiness
+
+search bar
+
+location/title filters
+
+primary CTA: Browse Jobs
+
+2. Trust strip
+
+real external jobs
+
+curated by Prompt Academy
+
+AI proficiency-screened application channel
+
+candidate support available
+
+3. Featured jobs
+
+Normal-looking job cards.
+
+4. How it works
+
+Browse jobs
+
+Apply through Prompt Academy
+
+Complete AI proficiency screening
+
+Get certified and continue
+
+5. Why use Prompt Academy
+
+curated opportunities
+
+skill validation
+
+structured application support
+
+AI readiness signal
+
+6. Career resources
+
+AI job readiness
+
+prompt skills
+
+automation fundamentals
+
+role-based prep
+
+7. CTA
+
+Explore jobs
+
+See how certification works
+
+B. Jobs listing page
+Goal
+
+Feel like a serious job board.
+
+Filters
+
+keyword
+
+title
+
+remote/hybrid/on-site
+
+location
+
+job category
+
+salary range
+
+experience level
+
+certification pathway available
+
+recently verified
+
+Job card structure
+
+Each card should include:
+
+title
+
+employer name or confidential label
+
+location
+
+salary if known
+
+employment type
+
+short summary
+
+tags like:
+
+External employer
+
+Curated by Prompt Academy
+
+Certification required to apply through this channel
+
+This makes the rule visible without being obnoxious.
+
+C. Job detail page
+Goal
+
+85 percent standard job page, 15 percent Prompt Academy application logic.
+
+Page layout
+1. Top info block
+
+title
+
+employer / confidential employer
+
+location
+
+salary
+
+employment type
+
+posted date
+
+last verified date
+
+2. Primary CTA
+
+Apply Through Prompt Academy
+
+3. Supporting note directly below CTA
+
+certification required to apply through this channel
+
+Prompt Academy is not the employer unless explicitly stated
+
+4. Main job content
+
+about the role
+
+responsibilities
+
+qualifications
+
+preferred experience
+
+compensation and benefits if available
+
+about the employer if available
+
+5. Application requirements box
+
+This is where your process becomes clear:
+
+Prompt Academy AI proficiency screening required
+
+Prompt Academy certification required to continue through this application channel
+
+resume upload required
+
+role-specific responses required
+
+6. Optional section: Why this role fits Prompt Academy candidates
+
+AI literacy
+
+workflow thinking
+
+automation readiness
+
+communication clarity
+
+7. Quiet disclosure footer
+
+external opportunity
+
+applications through Prompt Academy follow Prompt Academy screening standards
+
+certification does not guarantee interview or offer
+
+6. The application gate
+
+This is one of the most important pages.
+
+Trigger
+
+User clicks “Apply Through Prompt Academy.”
+
+Goal
+
+Make the requirement feel like part of a premium screening channel, not a bait-and-switch.
+
+Gate page structure
+Headline
+
+Complete AI Proficiency Screening to Apply Through Prompt Academy
+
+Subhead
+
+Prompt Academy uses a standardized screening process before accepting candidates through this channel.
+
+Content blocks
+Why this is required
+
+helps standardize candidate readiness
+
+ensures applicants meet Prompt Academy’s AI proficiency bar
+
+allows Prompt Academy to certify and potentially vouch for qualified candidates
+
+What happens if you pass
+
+receive Prompt Academy certification
+
+continue application through this role
+
+become eligible for consideration through this channel
+
+may be considered for other matching roles later
+
+What happens if you do not pass
+
+receive a skills-gap summary
+
+get recommended learning modules
+
+can retake later
+
+may still pursue other routes outside Prompt Academy if available
+
+CTA
+
+Start Screening
+
+Secondary link
+
+Return to job details
+
+7. The screening experience
+
+This has to feel rigorous enough to justify the certification.
+
+Screening components
+
+Could include:
+
+multiple choice AI literacy questions
+
+scenario-based workflow questions
+
+prompt-writing exercise
+
+business reasoning / use-case matching
+
+short written answers
+
+tool familiarity questions
+
+role-specific mini-assessment
+
+Assessment design principles
+
+not overly long
+
+role-relevant
+
+measurable
+
+difficult enough to create signal
+
+consistent enough to defend the standard
+
+Scoring model
+
+You should have:
+
+overall pass/fail score
+
+category subscores
+
+role-fit signal
+
+internal confidence score
+
+reviewer override if needed
+
+Example categories:
+
+AI fundamentals
+
+prompt quality
+
+automation logic
+
+judgment and use-case analysis
+
+professional communication
+
+8. The pass experience
+Goal
+
+Make passing feel meaningful and unlock next steps cleanly.
+
+Pass page layout
+Headline
+
+You’ve Met Prompt Academy’s AI Proficiency Standard
+
+What they receive
+
+Prompt Academy certification
+
+eligibility to continue through this application channel
+
+optional candidate profile in your talent network
+
+Next actions
+
+complete application
+
+upload resume
+
+answer role-specific questions
+
+add LinkedIn / portfolio
+
+consent to candidate review / submission process
+
+Optional enhancement
+
+Show badge preview:
+
+Certified in AI Proficiency
+
+Date earned
+
+validity window if applicable
+
+9. The fail experience
+
+This page matters a lot for conversion.
+
+Goal
+
+Disappoint without insulting. Redirect without breaking trust.
+
+Page structure
+Headline
+
+You Do Not Yet Meet Prompt Academy’s Standard for This Application Channel
+
+Explanation
+
+This should not say:
+
+you are unqualified for the job
+
+It should say:
+
+you do not currently meet Prompt Academy’s AI proficiency standard for submission through this channel
+
+Show skill-gap categories
+
+For example:
+
+prompt clarity
+
+automation reasoning
+
+AI workflow use cases
+
+applied tool fluency
+
+Recommended next step
+
+take specific course modules
+
+estimated time to improve
+
+retake assessment after completion
+
+CTA options
+
+Start Recommended Training
+
+Save this role for later
+
+Browse related roles
+
+This page is where your training product earns its place.
+
+10. The certification product
+
+The certificate cannot feel arbitrary.
+
+It should have:
+
+name
+
+date earned
+
+score band or proficiency level
+
+role relevance or specialty track
+
+unique credential ID
+
+expiration / renewal date if you want freshness
+
+Good framework
+
+You may eventually want multiple certificates:
+
+AI Proficiency Core
+
+Prompt Operations
+
+Workflow Automation Readiness
+
+AI for Professional Productivity
+
+AI-Assisted Research and Analysis
+
+Then different jobs can require:
+
+Core only
+
+Core + one specialty
+
+Core + minimum score threshold
+
+This gives you a real system rather than a generic certificate.
+
+11. The application flow after passing
+
+After pass, the user should feel like they are now in a premium candidate lane.
+
+Application flow
+
+resume upload
+
+LinkedIn / portfolio
+
+work authorization
+
+compensation expectations
+
+location / relocation
+
+short answers
+
+availability
+
+candidate summary auto-generated from screening
+
+consent / privacy acknowledgement
+
+submit
+
+Internal value
+
+This lets Prompt Academy create a more valuable submission packet than a normal job board.
+
+You can internally generate:
+
+AI proficiency summary
+
+strengths
+
+likely role alignment
+
+recommended framing points
+
+recruiter-facing snapshot
+
+This is where “we vouch for them” starts to become operational.
+
+12. Candidate dashboard
+
+Once users are in the system, you want them in an account environment.
+
+Dashboard tabs
+
+My Applications
+
+My Certification
+
+Recommended Jobs
+
+Skills to Improve
+
+Saved Roles
+
+Training Progress
+
+Profile
+
+Alerts
+
+Benefits
+
+This turns one-off job traffic into a retained talent network.
+
+13. The trust/disclosure system
+
+This has to be designed into the experience, not hidden in legal pages.
+
+On job cards
+
+External employer
+
+Curated by Prompt Academy
+
+Certification required for this application channel
+
+On job detail pages
+
+Prompt Academy is not the employer unless explicitly stated
+
+certification required to apply through Prompt Academy’s channel
+
+no promise of interview or offer
+
+On certification pages
+
+certification reflects Prompt Academy’s own evaluation standard
+
+employer hiring decisions remain independent
+
+This is how you stay clean while still making the funnel commercially strong.
+
+14. The backend workflow
+
+You need an operations system behind the nice front end.
+
+Job ingestion pipeline
+
+For each job:
+
+source URL
+
+employer
+
+recruiter/agency if applicable
+
+title
+
+location
+
+salary
+
+job description
+
+apply URL
+
+internal Prompt Academy slug
+
+verification status
+
+expiry status
+
+certification requirement tier
+
+skill categories
+
+screening version assigned
+
+Job statuses
+
+Draft
+
+Pending review
+
+Live
+
+Needs reverification
+
+Expired
+
+Removed
+
+Candidate statuses
+
+Visitor
+
+Screening started
+
+Screening passed
+
+Screening failed
+
+Certified
+
+Application in progress
+
+Applied
+
+Under review
+
+Referred / submitted
+
+Rejected
+
+Nurture pool
+
+Admin actions
+
+verify job
+
+edit listing
+
+retire listing
+
+assign certificate type
+
+review failed/pass edge cases
+
+approve candidate for referral
+
+add internal notes
+
+15. The operating logic behind “vouching”
+
+This is important. “Vouching” should become a real internal process.
+
+What vouching can mean operationally
+
+Prompt Academy may:
+
+certify that a candidate met your AI threshold
+
+provide a standardized candidate summary
+
+present candidate strengths
+
+flag candidate role fit
+
+optionally forward candidate to recruiter/employer contact if relationship exists
+
+Internal vouch score
+
+You may want:
+
+certified
+
+certified with distinction
+
+strong fit
+
+moderate fit
+
+training recommended before referral
+
+This helps you avoid treating every pass the same.
+
+16. The employer side, eventually
+
+Even if phase one is mostly external jobs, you should build toward employer participation.
+
+Employer-facing value proposition
+
+access to AI-screened candidates
+
+lower noise
+
+clearer candidate readiness
+
+curated submissions
+
+optional role-specific certification requirements
+
+Employer portal, eventually
+
+submit role
+
+set desired proficiency threshold
+
+review candidate packets
+
+request specialty track
+
+view certified talent pool
+
+That is where this can evolve from a jobs funnel into a hiring channel.
+
+17. The monetization architecture
+
+Even if you are not charging applicants right away, you should know the monetization paths.
+
+Short-term
+
+training / courses
+
+certification fees if you choose
+
+membership
+
+candidate upsells
+
+Mid-term
+
+employer posting fees
+
+employer screening fees
+
+paid access to certified candidate pool
+
+referral / placement fees
+
+sponsorships
+
+Long-term
+
+talent marketplace
+
+enterprise AI-readiness credentialing
+
+employer-branded pipelines
+
+white-labeled screening
+
+18. The strongest messaging hierarchy
+
+You want the message stack to go in this order:
+
+First message
+
+These are real, relevant jobs.
+
+Second message
+
+Prompt Academy has a distinct application channel.
+
+Third message
+
+That channel requires AI proficiency screening and certification.
+
+Fourth message
+
+Certified candidates may proceed and may be vouched for by Prompt Academy.
+
+Fifth message
+
+If you do not qualify yet, we will tell you how to improve.
+
+That sequence is psychologically much stronger than leading with “buy certification.”
+
+19. The exact user journey, page by page
+Top-of-funnel
+
+homepage
+
+jobs listing page
+
+SEO landing pages by category/location
+
+Mid-funnel
+
+job detail page
+
+application gate page
+
+screening intro page
+
+screening steps
+
+Conversion funnel
+
+pass page
+
+fail page
+
+course recommendation page
+
+full application page
+
+Retention layer
+
+candidate dashboard
+
+saved jobs
+
+certification profile
+
+retake flow
+
+job alerts
+
+20. MVP version vs phase 2
+MVP
+
+Build only:
+
+homepage
+
+jobs page
+
+job detail page
+
+apply gate
+
+one screening flow
+
+pass page
+
+fail page
+
+simple course recommendation page
+
+basic dashboard
+
+admin for job management
+
+Phase 2
+
+Add:
+
+multiple certificates
+
+role-specific screening
+
+employer portal
+
+recruiter notes
+
+candidate ranking
+
+job alerts
+
+talent network search
+
+direct employer relationships
+
+21. The overall experience you are aiming for
+
+The user should feel:
+
+“this is a real jobs platform”
+
+“Prompt Academy has standards”
+
+“passing this gives me access to a better application channel”
+
+“if I fail, I get a clear path forward”
+
+“this is selective, not spammy”
+
+That feeling is what makes the system premium instead of scammy.
+
+22. The one-sentence framework
+
+The cleanest internal framing is:
+
+Prompt Academy Jobs is a curated external job marketplace where candidates must pass Prompt Academy’s AI proficiency standard to apply through Prompt Academy’s application channel, after which Prompt Academy may certify and vouch for qualified applicants.
+
+23. My recommended final structure
+
+If I were organizing the whole thing, I’d define it like this:
+
+Front-end promise
+
+Curated AI-relevant jobs.
+
+Gatekeeping mechanism
+
+Prompt Academy AI proficiency screening.
+
+Unlock
+
+Prompt Academy certification.
+
+Value after unlock
+
+Access to Prompt Academy’s application channel.
+
+Downstream advantage
+
+Prompt Academy may vouch for or submit qualified candidates.
+
+Recovery loop
+
+If failed, candidate gets training path and retake path.

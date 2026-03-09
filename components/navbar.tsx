@@ -6,9 +6,11 @@ import { cn } from "@/lib/utils";
 import { useState } from "react";
 
 const links = [
-  { href: "/", label: "Home" },
-  { href: "/jobs", label: "Browse Jobs" },
-  { href: "/about", label: "About" },
+  { href: "/jobs", label: "Jobs" },
+  { href: "/#how-it-works", label: "How It Works" },
+  { href: "/#for-employers", label: "For Employers" },
+  { href: "/#resources", label: "Resources" },
+  { href: "/dashboard", label: "Dashboard" },
 ];
 
 export function Navbar() {
@@ -35,7 +37,7 @@ export function Navbar() {
               const isActive =
                 link.href === "/"
                   ? pathname === "/" || pathname === ""
-                  : pathname.startsWith(link.href);
+                  : !link.href.startsWith("/#") && pathname.startsWith(link.href);
               return (
                 <Link
                   key={link.href}
@@ -53,13 +55,13 @@ export function Navbar() {
             })}
           </div>
 
-          {/* Post Job CTA */}
+          {/* Browse Jobs CTA */}
           <div className="hidden md:block">
             <Link
               href="/jobs"
               className="inline-flex items-center px-5 py-2 rounded-lg bg-tpa-gold text-tpa-dark text-sm font-semibold font-body hover:bg-tpa-gold-light transition-colors"
             >
-              Post a Job
+              Browse Jobs
             </Link>
           </div>
 
@@ -100,7 +102,7 @@ export function Navbar() {
               const isActive =
                 link.href === "/"
                   ? pathname === "/" || pathname === ""
-                  : pathname.startsWith(link.href);
+                  : !link.href.startsWith("/#") && pathname.startsWith(link.href);
               return (
                 <Link
                   key={link.href}
@@ -122,7 +124,7 @@ export function Navbar() {
               onClick={() => setMobileOpen(false)}
               className="block px-4 py-2 rounded-lg text-sm font-semibold font-body bg-tpa-gold text-tpa-dark text-center mt-2"
             >
-              Post a Job
+              Browse Jobs
             </Link>
           </div>
         )}

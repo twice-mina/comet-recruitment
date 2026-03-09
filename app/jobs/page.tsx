@@ -14,8 +14,8 @@ function JobListingsContent() {
   const query = searchParams.get("q") || "";
   const category = searchParams.get("category") || "";
   const jobType = searchParams.get("type") || "";
+  const level = searchParams.get("level") || "";
 
-  // Start with mock data, switch to Firestore when available
   const [allJobs, setAllJobs] = useState<Job[] | null>(null);
 
   useEffect(() => {
@@ -30,7 +30,6 @@ function JobListingsContent() {
   // Filter logic
   let jobs: Job[];
   if (allJobs) {
-    // Firestore jobs — filter client-side
     jobs = allJobs;
     if (query) {
       const q = query.toLowerCase();
@@ -42,17 +41,14 @@ function JobListingsContent() {
           job.category.toLowerCase().includes(q)
       );
     }
-    if (category) {
-      jobs = jobs.filter((job) => job.category === category);
-    }
-    if (jobType) {
-      jobs = jobs.filter((job) => job.job_type === jobType);
-    }
+    if (category) jobs = jobs.filter((job) => job.category === category);
+    if (jobType) jobs = jobs.filter((job) => job.job_type === jobType);
+    if (level) jobs = jobs.filter((job) => job.experience_level === level);
   } else {
-    // Fallback to mock data
     jobs = searchJobs(query, {
       category: category || undefined,
       job_type: jobType || undefined,
+      experience_level: level || undefined,
     });
   }
 
@@ -68,32 +64,27 @@ function JobListingsContent() {
             Browse <em className="italic text-tpa-gold">AI Jobs</em>
           </h1>
           <p className="text-tpa-hero-text/60 font-body max-w-xl">
-            Discover opportunities in AI, prompt engineering, machine learning,
-            and more.
+            Real AI opportunities from verified employers. Apply directly or through Prompt Academy&apos;s screening channel.
           </p>
         </div>
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        {/* Search */}
         <div className="mb-6">
           <SearchBar defaultValue={query} />
         </div>
 
-        {/* Filters */}
         <div className="mb-8">
           <JobFilters />
         </div>
 
-        {/* Results */}
         <div>
           <div className="flex items-center justify-between mb-4">
             <p className="text-sm font-body text-tpa-text/60">
               {jobs.length} {jobs.length === 1 ? "job" : "jobs"} found
               {query && (
                 <span>
-                  {" "}
-                  for &ldquo;<span className="font-medium text-tpa-text">{query}</span>&rdquo;
+                  {" "}for &ldquo;<span className="font-medium text-tpa-text">{query}</span>&rdquo;
                 </span>
               )}
             </p>
@@ -112,8 +103,7 @@ function JobListingsContent() {
                 No jobs found
               </h3>
               <p className="text-tpa-text/60 font-body text-sm">
-                Try adjusting your search or filters to find what you&apos;re
-                looking for.
+                Try adjusting your search or filters to find what you&apos;re looking for.
               </p>
             </div>
           )}

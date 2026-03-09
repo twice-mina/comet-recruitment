@@ -31,3 +31,14 @@ export function jobTypeBadgeColor(type: string): string {
       return "bg-gray-100 text-gray-800";
   }
 }
+
+export function experienceLevelLabel(level: string): string {
+  switch (level) {
+    case "entry": return "Entry Level";
+    case "mid": return "Mid Level";
+    case "senior": return "Senior";
+    case "lead": return "Lead";
+    case "executive": return "Executive";
+    default: return level;
+  }
+}
