@@ -8,7 +8,7 @@ export function JobCard({ job }: { job: Job }) {
 
   return (
     <Link href={`/jobs/${job.id}`} className="block group">
-      <div className="bg-white rounded-xl border border-tpa-border p-6 hover:border-tpa-gold/40 hover:shadow-md transition-all duration-200">
+      <div className="bg-white rounded-xl border border-tpa-border p-4 sm:p-6 card-hover hover:border-tpa-gold/40">
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
           {/* Main info */}
           <div className="flex-1 min-w-0">

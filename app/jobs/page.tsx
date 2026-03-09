@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { SearchBar } from "@/components/search-bar";
 import { JobFilters } from "@/components/job-filters";
 import { JobCard } from "@/components/job-card";
+import { RevealOnScroll } from "@/components/reveal-on-scroll";
 import { searchJobs } from "@/lib/mock-data";
 import { Job } from "@/lib/types";
 import { subscribeToActiveJobs } from "@/lib/firebase/jobs";
@@ -53,30 +54,34 @@ function JobListingsContent() {
   }
 
   return (
-    <div>
+    <div className="animate-page-in">
       {/* Page header */}
       <div className="bg-tpa-dark border-b border-tpa-dark-secondary">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
-          <p className="text-sm font-body text-tpa-gold font-semibold tracking-wider uppercase mb-2">
+          <p className="animate-hero-badge text-sm font-body text-tpa-gold font-semibold tracking-wider uppercase mb-2">
             <span className="mr-1.5">◆</span>Job Board
           </p>
-          <h1 className="text-3xl sm:text-4xl font-bold font-heading text-tpa-hero-text mb-3">
+          <h1 className="animate-hero-title text-3xl sm:text-4xl font-bold font-heading text-tpa-hero-text mb-3">
             Browse <em className="italic text-tpa-gold">AI Jobs</em>
           </h1>
-          <p className="text-tpa-hero-text/60 font-body max-w-xl">
+          <p className="animate-hero-subtitle text-tpa-hero-text/60 font-body max-w-xl">
             Real AI opportunities from verified employers. Apply directly or through Prompt Academy&apos;s screening channel.
           </p>
         </div>
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        <div className="mb-6">
-          <SearchBar defaultValue={query} />
-        </div>
+        <RevealOnScroll>
+          <div className="mb-6">
+            <SearchBar defaultValue={query} />
+          </div>
+        </RevealOnScroll>
 
-        <div className="mb-8">
-          <JobFilters />
-        </div>
+        <RevealOnScroll delay={100}>
+          <div className="mb-8">
+            <JobFilters />
+          </div>
+        </RevealOnScroll>
 
         <div>
           <div className="flex items-center justify-between mb-4">

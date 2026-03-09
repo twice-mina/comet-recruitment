@@ -49,14 +49,14 @@ export default function ScreeningClient() {
   }
 
   return (
-    <div>
+    <div className="animate-page-in">
       {/* Header */}
       <div className="bg-tpa-dark border-b border-tpa-dark-secondary">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
-          <p className="text-sm font-body text-tpa-gold font-semibold tracking-wider uppercase mb-2">
+          <p className="animate-hero-badge text-sm font-body text-tpa-gold font-semibold tracking-wider uppercase mb-2">
             <span className="mr-1.5">◆</span>AI Proficiency Screening
           </p>
-          <h1 className="text-2xl sm:text-3xl font-bold font-heading text-tpa-hero-text mb-2">
+          <h1 className="animate-hero-title text-2xl sm:text-3xl font-bold font-heading text-tpa-hero-text mb-2">
             AI Proficiency Screening
           </h1>
           <p className="text-tpa-hero-text/60 font-body">
@@ -71,7 +71,7 @@ export default function ScreeningClient() {
             </div>
             <div className="w-full bg-tpa-dark-secondary rounded-full h-2">
               <div
-                className="bg-tpa-gold rounded-full h-2 transition-all duration-300"
+                className="bg-tpa-gold rounded-full h-2 transition-all duration-500 ease-out"
                 style={{ width: `${progress}%` }}
               />
             </div>
@@ -118,7 +118,7 @@ export default function ScreeningClient() {
                   {question.options.map((option, oi) => (
                     <label
                       key={oi}
-                      className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition-colors ${
+                      className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer radio-option ${
                         answers[question.id] === String(oi)
                           ? "border-tpa-gold bg-tpa-gold/5"
                           : "border-tpa-border hover:border-tpa-gold/30"

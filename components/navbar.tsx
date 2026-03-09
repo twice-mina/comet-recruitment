@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const links = [
   { href: "/jobs", label: "Jobs" },
@@ -16,18 +16,38 @@ const links = [
 export function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
 
   return (
-    <nav className="sticky top-0 z-50 bg-tpa-dark/95 backdrop-blur-md border-b border-tpa-dark-secondary">
+    <nav
+      className={cn(
+        "sticky top-0 z-50 border-b border-tpa-dark-secondary transition-all duration-300",
+        scrolled
+          ? "bg-tpa-dark/98 backdrop-blur-lg shadow-lg shadow-black/5"
+          : "bg-tpa-dark/95 backdrop-blur-md"
+      )}
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-tpa-gold flex items-center justify-center">
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="w-8 h-8 rounded-lg bg-tpa-gold flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
               <span className="text-tpa-dark font-bold text-sm font-heading">T</span>
             </div>
             <span className="font-heading font-bold text-lg text-tpa-hero-text">
-              TPA <span className="text-tpa-gold">Careers</span>
+              TPA <span className="text-tpa-gold transition-colors duration-300 group-hover:text-tpa-gold-light">Careers</span>
             </span>
           </Link>
 
@@ -43,7 +63,7 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "px-4 py-2 rounded-lg text-sm font-medium font-body transition-colors",
+                    "px-4 py-2 rounded-lg text-sm font-medium font-body transition-all duration-200",
                     isActive
                       ? "bg-tpa-dark-secondary text-tpa-gold"
                       : "text-tpa-hero-text/70 hover:text-tpa-hero-text hover:bg-tpa-dark-secondary/50"
@@ -59,7 +79,7 @@ export function Navbar() {
           <div className="hidden md:block">
             <Link
               href="/jobs"
-              className="inline-flex items-center px-5 py-2 rounded-lg bg-tpa-gold text-tpa-dark text-sm font-semibold font-body hover:bg-tpa-gold-light transition-colors"
+              className="inline-flex items-center px-5 py-2 rounded-lg bg-tpa-gold text-tpa-dark text-sm font-semibold font-body btn-gold-shimmer btn-hover transition-colors hover:bg-tpa-gold-light"
             >
               Browse Jobs
             </Link>
@@ -68,10 +88,11 @@ export function Navbar() {
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 rounded-lg text-tpa-hero-text/70 hover:bg-tpa-dark-secondary"
+            className="md:hidden p-2 rounded-lg text-tpa-hero-text/70 hover:bg-tpa-dark-secondary min-h-[44px] min-w-[44px] flex items-center justify-center"
+            aria-label="Toggle menu"
           >
             <svg
-              className="w-6 h-6"
+              className={cn("w-6 h-6 transition-transform duration-200", mobileOpen && "rotate-90")}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -97,7 +118,7 @@ export function Navbar() {
 
         {/* Mobile Nav */}
         {mobileOpen && (
-          <div className="md:hidden pb-4 space-y-1">
+          <div className="md:hidden pb-4 space-y-1 animate-slide-down">
             {links.map((link) => {
               const isActive =
                 link.href === "/"
@@ -109,7 +130,7 @@ export function Navbar() {
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
                   className={cn(
-                    "block px-4 py-2 rounded-lg text-sm font-medium font-body transition-colors",
+                    "block px-4 py-3 rounded-lg text-sm font-medium font-body transition-colors min-h-[44px] flex items-center",
                     isActive
                       ? "bg-tpa-dark-secondary text-tpa-gold"
                       : "text-tpa-hero-text/70 hover:text-tpa-hero-text hover:bg-tpa-dark-secondary/50"
@@ -122,7 +143,7 @@ export function Navbar() {
             <Link
               href="/jobs"
               onClick={() => setMobileOpen(false)}
-              className="block px-4 py-2 rounded-lg text-sm font-semibold font-body bg-tpa-gold text-tpa-dark text-center mt-2"
+              className="block px-4 py-3 rounded-lg text-sm font-semibold font-body bg-tpa-gold text-tpa-dark text-center mt-2 min-h-[44px] flex items-center justify-center btn-gold-shimmer"
             >
               Browse Jobs
             </Link>

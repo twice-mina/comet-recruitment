@@ -58,17 +58,17 @@ export default function DashboardPage() {
   const [activeTab, setActiveTab] = useState("applications");
 
   return (
-    <div>
+    <div className="animate-page-in">
       {/* Header */}
       <div className="bg-tpa-dark border-b border-tpa-dark-secondary">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
-          <p className="text-sm font-body text-tpa-gold font-semibold tracking-wider uppercase mb-2">
+          <p className="animate-hero-badge text-sm font-body text-tpa-gold font-semibold tracking-wider uppercase mb-2">
             <span className="mr-1.5">◆</span>Dashboard
           </p>
-          <h1 className="text-3xl sm:text-4xl font-bold font-heading text-tpa-hero-text mb-3">
+          <h1 className="animate-hero-title text-3xl sm:text-4xl font-bold font-heading text-tpa-hero-text mb-3">
             Your <em className="italic text-tpa-gold">Dashboard</em>
           </h1>
-          <p className="text-tpa-hero-text/60 font-body">
+          <p className="animate-hero-subtitle text-tpa-hero-text/60 font-body">
             Track your applications, certifications, and recommended roles.
           </p>
         </div>

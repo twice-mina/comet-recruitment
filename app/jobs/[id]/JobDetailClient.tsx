@@ -7,6 +7,7 @@ import { getJobById } from "@/lib/mock-data";
 import { getJobFromFirestore } from "@/lib/firebase/jobs";
 import { Job } from "@/lib/types";
 import { formatSalary, formatDate, jobTypeBadgeColor, experienceLevelLabel } from "@/lib/format";
+import { RevealOnScroll } from "@/components/reveal-on-scroll";
 import { cn } from "@/lib/utils";
 
 export default function JobDetailClient() {
@@ -55,7 +56,7 @@ export default function JobDetailClient() {
   const displayCompany = job.employer_confidential ? "Confidential Employer" : job.company;
 
   return (
-    <div>
+    <div className="animate-page-in">
       {/* Dark header */}
       <div className="bg-tpa-dark border-b border-tpa-dark-secondary">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
@@ -114,6 +115,7 @@ export default function JobDetailClient() {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main content */}
           <div className="lg:col-span-2 space-y-8">
+            <RevealOnScroll>
             <div>
               <h2 className="text-xl font-semibold font-heading text-tpa-text mb-4">About the Role</h2>
               <div className="prose max-w-none">
@@ -123,22 +125,27 @@ export default function JobDetailClient() {
               </div>
             </div>
 
+            </RevealOnScroll>
+
             {job.responsibilities.length > 0 && (
-              <div>
-                <h2 className="text-xl font-semibold font-heading text-tpa-text mb-4">Responsibilities</h2>
-                <ul className="space-y-3">
-                  {job.responsibilities.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-tpa-gold mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                      <span className="text-tpa-text/80 font-body">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <RevealOnScroll>
+                <div>
+                  <h2 className="text-xl font-semibold font-heading text-tpa-text mb-4">Responsibilities</h2>
+                  <ul className="space-y-3">
+                    {job.responsibilities.map((item, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <svg className="w-5 h-5 text-tpa-gold mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                        <span className="text-tpa-text/80 font-body">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </RevealOnScroll>
             )}
 
+            <RevealOnScroll>
             <div>
               <h2 className="text-xl font-semibold font-heading text-tpa-text mb-4">Qualifications</h2>
               <ul className="space-y-3">
@@ -153,7 +160,10 @@ export default function JobDetailClient() {
               </ul>
             </div>
 
+            </RevealOnScroll>
+
             {job.preferred_qualifications.length > 0 && (
+              <RevealOnScroll>
               <div>
                 <h2 className="text-xl font-semibold font-heading text-tpa-text mb-4">Preferred</h2>
                 <ul className="space-y-3">
@@ -167,6 +177,7 @@ export default function JobDetailClient() {
                   ))}
                 </ul>
               </div>
+              </RevealOnScroll>
             )}
 
             {job.benefits && job.benefits.length > 0 && (
@@ -183,6 +194,7 @@ export default function JobDetailClient() {
             )}
 
             {/* Why This Role Fits TPA Candidates */}
+            <RevealOnScroll>
             <div className="bg-tpa-dark/5 rounded-xl border border-tpa-border p-6">
               <h2 className="text-lg font-semibold font-heading text-tpa-text mb-3">
                 <span className="text-tpa-gold mr-1.5">◆</span>Why This Role Fits TPA Candidates
@@ -206,6 +218,8 @@ export default function JobDetailClient() {
                 ))}
               </div>
             </div>
+
+            </RevealOnScroll>
 
             {/* Quiet disclosure footer */}
             <div className="border-t border-tpa-border pt-6 space-y-2 text-xs font-body text-tpa-text/40">

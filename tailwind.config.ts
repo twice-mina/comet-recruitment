@@ -27,6 +27,12 @@ const config: Config = {
         heading: ["var(--font-playfair)", "serif"],
         body: ["var(--font-dm-sans)", "sans-serif"],
       },
+      animation: {
+        fadeInUp: "hero-fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both",
+        fadeIn: "hero-stagger 0.6s cubic-bezier(0.16, 1, 0.3, 1) both",
+        scaleIn: "hero-scale-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both",
+        shimmer: "shimmer 2s ease-in-out infinite",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

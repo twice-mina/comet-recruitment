@@ -32,7 +32,7 @@ export function JobFilters() {
           <button
             onClick={() => updateFilter("category", "")}
             className={cn(
-              "px-3 py-1.5 rounded-lg text-xs font-medium font-body transition-colors",
+              "px-3 py-1.5 rounded-lg text-xs font-medium font-body transition-colors filter-pill",
               !currentCategory
                 ? "bg-tpa-gold text-tpa-dark"
                 : "bg-white text-tpa-text/70 border border-tpa-border hover:border-tpa-gold/40"
@@ -47,7 +47,7 @@ export function JobFilters() {
                 updateFilter("category", currentCategory === cat ? "" : cat)
               }
               className={cn(
-                "px-3 py-1.5 rounded-lg text-xs font-medium font-body transition-colors",
+                "px-3 py-1.5 rounded-lg text-xs font-medium font-body transition-colors filter-pill",
                 currentCategory === cat
                   ? "bg-tpa-gold text-tpa-dark"
                   : "bg-white text-tpa-text/70 border border-tpa-border hover:border-tpa-gold/40"
@@ -68,7 +68,7 @@ export function JobFilters() {
           <button
             onClick={() => updateFilter("type", "")}
             className={cn(
-              "px-3 py-1.5 rounded-lg text-xs font-medium font-body transition-colors",
+              "px-3 py-1.5 rounded-lg text-xs font-medium font-body transition-colors filter-pill",
               !currentType
                 ? "bg-tpa-gold text-tpa-dark"
                 : "bg-white text-tpa-text/70 border border-tpa-border hover:border-tpa-gold/40"
@@ -104,7 +104,7 @@ export function JobFilters() {
           <button
             onClick={() => updateFilter("level", "")}
             className={cn(
-              "px-3 py-1.5 rounded-lg text-xs font-medium font-body transition-colors",
+              "px-3 py-1.5 rounded-lg text-xs font-medium font-body transition-colors filter-pill",
               !currentLevel
                 ? "bg-tpa-gold text-tpa-dark"
                 : "bg-white text-tpa-text/70 border border-tpa-border hover:border-tpa-gold/40"
@@ -119,7 +119,7 @@ export function JobFilters() {
                 updateFilter("level", currentLevel === l.value ? "" : l.value)
               }
               className={cn(
-                "px-3 py-1.5 rounded-lg text-xs font-medium font-body transition-colors",
+                "px-3 py-1.5 rounded-lg text-xs font-medium font-body transition-colors filter-pill",
                 currentLevel === l.value
                   ? "bg-tpa-gold text-tpa-dark"
                   : "bg-white text-tpa-text/70 border border-tpa-border hover:border-tpa-gold/40"

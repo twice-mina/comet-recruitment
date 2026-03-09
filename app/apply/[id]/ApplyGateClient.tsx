@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import { getJobById } from "@/lib/mock-data";
 import { getJobFromFirestore } from "@/lib/firebase/jobs";
+import { RevealOnScroll } from "@/components/reveal-on-scroll";
 import { Job } from "@/lib/types";
 
 export default function ApplyGateClient() {
@@ -39,7 +40,7 @@ export default function ApplyGateClient() {
   }
 
   return (
-    <div>
+    <div className="animate-page-in">
       {/* Header */}
       <div className="bg-tpa-dark border-b border-tpa-dark-secondary">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
@@ -50,7 +51,7 @@ export default function ApplyGateClient() {
             <span>/</span>
             <span className="text-tpa-hero-text/80">Apply</span>
           </nav>
-          <h1 className="text-2xl sm:text-3xl font-bold font-heading text-tpa-hero-text mb-3">
+          <h1 className="animate-hero-title text-2xl sm:text-3xl font-bold font-heading text-tpa-hero-text mb-3">
             Complete AI Proficiency Screening
           </h1>
           <p className="text-tpa-hero-text/60 font-body max-w-xl">
@@ -67,6 +68,7 @@ export default function ApplyGateClient() {
           </p>
         </div>
 
+        <RevealOnScroll>
         <div className="grid md:grid-cols-2 gap-6 mb-10">
           {/* What happens if you pass */}
           <div className="bg-white rounded-xl border border-tpa-border p-6">
@@ -128,6 +130,8 @@ export default function ApplyGateClient() {
             </ul>
           </div>
         </div>
+
+        </RevealOnScroll>
 
         {/* Why screening is required */}
         <div className="bg-tpa-dark/5 rounded-xl border border-tpa-border p-6 mb-10">

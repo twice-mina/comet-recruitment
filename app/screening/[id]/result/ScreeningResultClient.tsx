@@ -51,18 +51,18 @@ function PassResult({ job, score }: { job: ReturnType<typeof getJobById>; score:
     <div>
       <div className="bg-tpa-dark border-b border-tpa-dark-secondary">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 text-center">
-          <div className="w-16 h-16 rounded-full bg-green-500/20 border-2 border-green-500/40 flex items-center justify-center mx-auto mb-6">
+          <div className="animate-check-in w-16 h-16 rounded-full bg-green-500/20 border-2 border-green-500/40 flex items-center justify-center mx-auto mb-6">
             <svg className="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-bold font-heading text-tpa-hero-text mb-3">
+          <h1 className="animate-hero-title text-2xl sm:text-3xl font-bold font-heading text-tpa-hero-text mb-3">
             You&apos;ve Met Prompt Academy&apos;s AI Proficiency Standard
           </h1>
-          <p className="text-tpa-hero-text/60 font-body max-w-lg mx-auto">
+          <p className="animate-hero-subtitle text-tpa-hero-text/60 font-body max-w-lg mx-auto">
             You passed! You&apos;re eligible to apply through Prompt Academy&apos;s channel for {job.title}.
           </p>
-          <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/30 text-green-400 text-sm font-body">
+          <div className="animate-badge-in mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/30 text-green-400 text-sm font-body">
             Score: {score}/100
           </div>
         </div>
@@ -70,8 +70,8 @@ function PassResult({ job, score }: { job: ReturnType<typeof getJobById>; score:
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         {/* Badge Preview */}
-        <div className="bg-white rounded-xl border border-tpa-border p-8 mb-10 text-center">
-          <div className="w-24 h-24 rounded-xl bg-gradient-to-br from-tpa-gold to-tpa-gold-dark flex items-center justify-center mx-auto mb-4">
+        <div className="bg-white rounded-xl border border-tpa-border p-8 mb-10 text-center animate-page-in">
+          <div className="animate-badge-in w-24 h-24 rounded-xl bg-gradient-to-br from-tpa-gold to-tpa-gold-dark flex items-center justify-center mx-auto mb-4">
             <svg className="w-12 h-12 text-tpa-dark" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
             </svg>
@@ -188,18 +188,18 @@ function FailResult({ job, score }: { job: ReturnType<typeof getJobById>; score:
     <div>
       <div className="bg-tpa-dark border-b border-tpa-dark-secondary">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 text-center">
-          <div className="w-16 h-16 rounded-full bg-amber-500/20 border-2 border-amber-500/40 flex items-center justify-center mx-auto mb-6">
+          <div className="animate-check-in w-16 h-16 rounded-full bg-amber-500/20 border-2 border-amber-500/40 flex items-center justify-center mx-auto mb-6">
             <svg className="w-8 h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
             </svg>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-bold font-heading text-tpa-hero-text mb-3">
+          <h1 className="animate-hero-title text-2xl sm:text-3xl font-bold font-heading text-tpa-hero-text mb-3">
             You Don&apos;t Yet Meet Prompt Academy&apos;s Standard
           </h1>
-          <p className="text-tpa-hero-text/60 font-body max-w-lg mx-auto">
+          <p className="animate-hero-subtitle text-tpa-hero-text/60 font-body max-w-lg mx-auto">
             You don&apos;t currently meet our AI proficiency standard for submission through this channel. But that&apos;s okay — here&apos;s how to get there.
           </p>
-          <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-sm font-body">
+          <div className="animate-badge-in mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-sm font-body">
             Score: {score}/100 · Passing: 70/100
           </div>
         </div>
@@ -222,7 +222,7 @@ function FailResult({ job, score }: { job: ReturnType<typeof getJobById>; score:
                 </div>
                 <div className="w-full bg-tpa-cream rounded-full h-2 mb-2">
                   <div
-                    className={`rounded-full h-2 transition-all ${gap.score >= 60 ? "bg-green-500" : "bg-amber-500"}`}
+                    className={`rounded-full h-2 animate-progress ${gap.score >= 60 ? "bg-green-500" : "bg-amber-500"}`}
                     style={{ width: `${gap.score}%` }}
                   />
                 </div>

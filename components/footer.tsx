@@ -27,17 +27,17 @@ export function Footer() {
             </h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/jobs" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors">
+                <Link href="/jobs" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors link-underline">
                   Browse Jobs
                 </Link>
               </li>
               <li>
-                <Link href="/#how-it-works" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors">
+                <Link href="/#how-it-works" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors link-underline">
                   How It Works
                 </Link>
               </li>
               <li>
-                <Link href="/dashboard" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors">
+                <Link href="/dashboard" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors link-underline">
                   Dashboard
                 </Link>
               </li>
@@ -51,17 +51,17 @@ export function Footer() {
             </h3>
             <ul className="space-y-2">
               <li>
-                <a href="https://thepromptacademy.com" target="_blank" rel="noopener noreferrer" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors">
+                <a href="https://thepromptacademy.com" target="_blank" rel="noopener noreferrer" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors link-underline">
                   The Prompt Academy
                 </a>
               </li>
               <li>
-                <a href="https://thepromptacademy.com" target="_blank" rel="noopener noreferrer" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors">
+                <a href="https://thepromptacademy.com" target="_blank" rel="noopener noreferrer" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors link-underline">
                   Get Certified
                 </a>
               </li>
               <li>
-                <a href="https://thepromptacademy.com" target="_blank" rel="noopener noreferrer" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors">
+                <a href="https://thepromptacademy.com" target="_blank" rel="noopener noreferrer" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors link-underline">
                   AI Career Guide
                 </a>
               </li>
@@ -75,17 +75,17 @@ export function Footer() {
             </h3>
             <ul className="space-y-2">
               <li>
-                <a href="https://thepromptacademy.com" target="_blank" rel="noopener noreferrer" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors">
+                <a href="https://thepromptacademy.com" target="_blank" rel="noopener noreferrer" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors link-underline">
                   Post a Job
                 </a>
               </li>
               <li>
-                <a href="https://thepromptacademy.com" target="_blank" rel="noopener noreferrer" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors">
+                <a href="https://thepromptacademy.com" target="_blank" rel="noopener noreferrer" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors link-underline">
                   Talent Network
                 </a>
               </li>
               <li>
-                <a href="https://thepromptacademy.com" target="_blank" rel="noopener noreferrer" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors">
+                <a href="https://thepromptacademy.com" target="_blank" rel="noopener noreferrer" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors link-underline">
                   Contact Us
                 </a>
               </li>
