@@ -7,24 +7,10 @@ service cloud.firestore {
     // HELPER FUNCTIONS
     // ============================================
 
-    // Check if user is authenticated
     function isAuthenticated() {
       return request.auth != null;
     }
 
-    // Check if user owns the document (document has userId field)
-    function isOwner() {
-      return isAuthenticated() &&
-             resource.data.userId == request.auth.uid;
-    }
-
-    // Check if user is creating a document they will own
-    function isCreatingOwned() {
-      return isAuthenticated() &&
-             request.resource.data.userId == request.auth.uid;
-    }
-
-    // Check if user is admin (check in userProfiles or users collection)
     function isAdmin() {
       return isAuthenticated() && (
         (exists(/databases/$(database)/documents/userProfiles/$(request.auth.uid)) &&
@@ -35,10 +21,16 @@ service cloud.firestore {
     }
 
     // ============================================
+    // JOBS COLLECTION — public read, authenticated write
+    // ============================================
+    match /jobs/{jobId} {
+      allow read: if true;
+      allow create, update, delete: if isAuthenticated();
+    }
+
+    // ============================================
     // USER PROFILES
     // ============================================
-
-    // User profiles - users can read/write their own profile
     match /userProfiles/{userId} {
       allow read: if isAuthenticated() && (request.auth.uid == userId || isAdmin());
       allow create: if isAuthenticated() && request.auth.uid == userId;
@@ -46,7 +38,6 @@ service cloud.firestore {
       allow delete: if isAuthenticated() && (request.auth.uid == userId || isAdmin());
     }
 
-    // Users collection (alternative to userProfiles)
     match /users/{userId} {
       allow read: if isAuthenticated() && (request.auth.uid == userId || isAdmin());
       allow create: if isAuthenticated() && request.auth.uid == userId;
@@ -57,32 +48,23 @@ service cloud.firestore {
     // ============================================
     // USER-OWNED COLLECTIONS
     // ============================================
-    // Pattern: Documents with a userId field belong to that user
-
-    // Generic pattern for user-owned collections
-    // Add your collection names here or use the wildcard pattern below
-
-    // Contacts
     match /contacts/{contactId} {
-      allow read: if isOwner() || isAdmin();
-      allow create: if isCreatingOwned();
-      allow update: if isOwner() || isAdmin();
-      allow delete: if isOwner() || isAdmin();
+      allow read: if resource.data.userId == request.auth.uid || isAdmin();
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update: if resource.data.userId == request.auth.uid || isAdmin();
+      allow delete: if resource.data.userId == request.auth.uid || isAdmin();
     }
 
-    // Settings
     match /settings/{settingId} {
-      allow read: if isOwner() || isAdmin();
-      allow create: if isCreatingOwned();
-      allow update: if isOwner() || isAdmin();
-      allow delete: if isOwner() || isAdmin();
+      allow read: if resource.data.userId == request.auth.uid || isAdmin();
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
+      allow update: if resource.data.userId == request.auth.uid || isAdmin();
+      allow delete: if resource.data.userId == request.auth.uid || isAdmin();
     }
 
     // ============================================
     // SUBCOLLECTIONS
     // ============================================
-
-    // User subcollections (e.g., /userProfiles/{userId}/tokens)
     match /userProfiles/{userId}/{subcollection}/{docId} {
       allow read, write: if isAuthenticated() && (request.auth.uid == userId || isAdmin());
     }
@@ -92,9 +74,8 @@ service cloud.firestore {
     }
 
     // ============================================
-    // ADMIN-ONLY COLLECTIONS
+    // ADMIN-ONLY & PUBLIC COLLECTIONS
     // ============================================
-
     match /adminData/{docId} {
       allow read, write: if isAdmin();
     }
@@ -104,11 +85,6 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
-    // ============================================
-    // PUBLIC COLLECTIONS (if needed)
-    // ============================================
-
-    // Public content that anyone can read
     match /publicContent/{docId} {
       allow read: if true;
       allow write: if isAdmin();

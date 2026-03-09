@@ -1,11 +1,13 @@
 "use client";
 
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { SearchBar } from "@/components/search-bar";
 import { JobFilters } from "@/components/job-filters";
 import { JobCard } from "@/components/job-card";
 import { searchJobs } from "@/lib/mock-data";
+import { Job } from "@/lib/types";
+import { subscribeToActiveJobs } from "@/lib/firebase/jobs";
 
 function JobListingsContent() {
   const searchParams = useSearchParams();
@@ -13,10 +15,46 @@ function JobListingsContent() {
   const category = searchParams.get("category") || "";
   const jobType = searchParams.get("type") || "";
 
-  const jobs = searchJobs(query, {
-    category: category || undefined,
-    job_type: jobType || undefined,
-  });
+  // Start with mock data, switch to Firestore when available
+  const [allJobs, setAllJobs] = useState<Job[] | null>(null);
+
+  useEffect(() => {
+    const unsub = subscribeToActiveJobs((firestoreJobs) => {
+      if (firestoreJobs.length > 0) {
+        setAllJobs(firestoreJobs);
+      }
+    });
+    return unsub;
+  }, []);
+
+  // Filter logic
+  let jobs: Job[];
+  if (allJobs) {
+    // Firestore jobs — filter client-side
+    jobs = allJobs;
+    if (query) {
+      const q = query.toLowerCase();
+      jobs = jobs.filter(
+        (job) =>
+          job.title.toLowerCase().includes(q) ||
+          job.company.toLowerCase().includes(q) ||
+          job.location.toLowerCase().includes(q) ||
+          job.category.toLowerCase().includes(q)
+      );
+    }
+    if (category) {
+      jobs = jobs.filter((job) => job.category === category);
+    }
+    if (jobType) {
+      jobs = jobs.filter((job) => job.job_type === jobType);
+    }
+  } else {
+    // Fallback to mock data
+    jobs = searchJobs(query, {
+      category: category || undefined,
+      job_type: jobType || undefined,
+    });
+  }
 
   return (
     <div>

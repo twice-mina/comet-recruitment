@@ -1,10 +1,12 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { SearchBar } from "@/components/search-bar";
 import { JobCard } from "@/components/job-card";
 import { mockJobs } from "@/lib/mock-data";
-import { JOB_CATEGORIES } from "@/lib/types";
+import { JOB_CATEGORIES, Job } from "@/lib/types";
+import { subscribeToActiveJobs } from "@/lib/firebase/jobs";
 
 const categoryIcons: Record<string, string> = {
   "AI Engineering": "🤖",
@@ -18,11 +20,22 @@ const categoryIcons: Record<string, string> = {
 };
 
 export default function HomePage() {
-  const featuredJobs = mockJobs.filter((j) => j.is_active).slice(0, 4);
+  const [jobs, setJobs] = useState<Job[]>(mockJobs.filter((j) => j.is_active));
+
+  useEffect(() => {
+    const unsub = subscribeToActiveJobs((firestoreJobs) => {
+      if (firestoreJobs.length > 0) {
+        setJobs(firestoreJobs);
+      }
+    });
+    return unsub;
+  }, []);
+
+  const featuredJobs = jobs.slice(0, 4);
   const jobCountByCategory = JOB_CATEGORIES.map((cat) => ({
     name: cat,
     icon: categoryIcons[cat] || "💼",
-    count: mockJobs.filter((j) => j.category === cat && j.is_active).length,
+    count: jobs.filter((j) => j.category === cat).length,
   }));
 
   return (
@@ -39,7 +52,7 @@ export default function HomePage() {
           <div className="text-center max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-tpa-gold/10 border border-tpa-gold/30 text-tpa-gold text-sm font-body mb-6">
               <span className="w-2 h-2 rounded-full bg-tpa-gold animate-pulse" />
-              {mockJobs.filter((j) => j.is_active).length} open positions
+              {jobs.length} open positions
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-tpa-hero-text mb-6 tracking-tight font-heading">
               Find Your Next{" "}
@@ -185,79 +198,35 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-3 gap-8">
             <div className="text-center p-6 rounded-xl bg-tpa-dark-secondary/50 border border-tpa-dark-secondary">
               <div className="w-12 h-12 rounded-xl bg-tpa-gold/10 border border-tpa-gold/20 flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-6 h-6 text-tpa-gold"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
+                <svg className="w-6 h-6 text-tpa-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold font-heading text-tpa-hero-text mb-2">
-                Verified Skills
-              </h3>
+              <h3 className="text-lg font-semibold font-heading text-tpa-hero-text mb-2">Verified Skills</h3>
               <p className="text-sm font-body text-tpa-hero-text/60">
-                TPA graduates have demonstrated proficiency in prompt
-                engineering, AI workflows, and responsible AI practices through
-                rigorous assessment.
+                TPA graduates have demonstrated proficiency in prompt engineering, AI workflows, and responsible AI practices through rigorous assessment.
               </p>
             </div>
-
             <div className="text-center p-6 rounded-xl bg-tpa-dark-secondary/50 border border-tpa-dark-secondary">
               <div className="w-12 h-12 rounded-xl bg-tpa-gold/10 border border-tpa-gold/20 flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-6 h-6 text-tpa-gold"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 10V3L4 14h7v7l9-11h-7z"
-                  />
+                <svg className="w-6 h-6 text-tpa-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold font-heading text-tpa-hero-text mb-2">
-                Production Ready
-              </h3>
+              <h3 className="text-lg font-semibold font-heading text-tpa-hero-text mb-2">Production Ready</h3>
               <p className="text-sm font-body text-tpa-hero-text/60">
-                Our curriculum focuses on real-world applications. Graduates can
-                hit the ground running with practical experience in AI tool
-                integration and optimization.
+                Our curriculum focuses on real-world applications. Graduates can hit the ground running with practical experience in AI tool integration and optimization.
               </p>
             </div>
-
             <div className="text-center p-6 rounded-xl bg-tpa-dark-secondary/50 border border-tpa-dark-secondary">
               <div className="w-12 h-12 rounded-xl bg-tpa-gold/10 border border-tpa-gold/20 flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-6 h-6 text-tpa-gold"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                  />
+                <svg className="w-6 h-6 text-tpa-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold font-heading text-tpa-hero-text mb-2">
-                Growing Network
-              </h3>
+              <h3 className="text-lg font-semibold font-heading text-tpa-hero-text mb-2">Growing Network</h3>
               <p className="text-sm font-body text-tpa-hero-text/60">
-                Access a community of 10,000+ AI professionals. TPA alumni work
-                at leading tech companies and innovative startups around the
-                globe.
+                Access a community of 10,000+ AI professionals. TPA alumni work at leading tech companies and innovative startups around the globe.
               </p>
             </div>
           </div>
