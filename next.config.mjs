@@ -1,10 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // Static export for Firebase Hosting
+  // output: 'standalone' is required for Firebase App Hosting (NOT 'export')
   images: {
     unoptimized: true,
   },
-  trailingSlash: true, // Better for Firebase Hosting
   eslint: {
     ignoreDuringBuilds: true, // Skip ESLint to reduce memory usage
   },
