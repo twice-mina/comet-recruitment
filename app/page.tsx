@@ -27,14 +27,15 @@ export default function HomePage() {
       <section className="bg-white border-b border-comet-border">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
           <p className="text-xs font-body font-medium tracking-widest uppercase text-comet-muted mb-5">
-            Recruitment, Reimagined
+            Roles Worth Applying For
           </p>
           <h1 className="font-heading font-bold text-5xl sm:text-6xl text-comet-text leading-tight mb-5 max-w-2xl">
-            Pre-screened candidates,{" "}
-            <span className="text-comet-indigo">ready to land.</span>
+            Your next role,{" "}
+            <br />
+            <span className="text-comet-indigo">already shortlisted.</span>
           </h1>
           <p className="text-lg text-comet-muted font-body max-w-lg mb-8 leading-relaxed">
-            We source, screen, and deliver top talent — so you interview fewer people and hire faster.
+            Browse hand-picked roles from top companies. Apply once — we handle the screening and make the introduction.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <Link
@@ -44,10 +45,10 @@ export default function HomePage() {
               Browse open roles →
             </Link>
             <Link
-              href="/#for-companies"
+              href="/about"
               className="inline-flex items-center justify-center px-6 py-3 rounded-md border border-comet-border text-comet-text text-sm font-medium font-body hover:bg-comet-surface transition-colors"
             >
-              Hire with Comet →
+              Hiring? Let&apos;s talk →
             </Link>
           </div>
         </div>
@@ -62,7 +63,7 @@ export default function HomePage() {
               href="/jobs"
               className="text-sm font-medium font-body text-comet-indigo hover:underline"
             >
-              Browse all →
+              View all roles →
             </Link>
           </div>
 
@@ -120,7 +121,7 @@ export default function HomePage() {
       <section id="how-it-works" className="bg-white border-b border-comet-border">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid md:grid-cols-2 gap-12">
-            {/* For Candidates */}
+            {/* For Job Seekers — primary / left */}
             <div>
               <p className="text-xs font-body font-medium tracking-widest uppercase text-comet-muted mb-4">
                 For Job Seekers
@@ -130,9 +131,9 @@ export default function HomePage() {
               </h2>
               <ol className="space-y-6">
                 {[
-                  ["Browse roles posted via Comet", "Find engineering, design, and product roles from vetted companies."],
-                  ["Complete AI-powered screening (10 min)", "Answer role-specific questions that demonstrate your fit."],
-                  ["Get matched and submitted directly", "We deliver your profile to the employer with our assessment."],
+                  ["Browse curated roles", "Every listing is hand-picked — no noise, no scraped junk."],
+                  ["Apply in minutes — no cover letter needed", "Answer a few focused questions that show your fit."],
+                  ["We screen and advocate for you", "We deliver your profile directly to the hiring team with our endorsement."],
                 ].map(([title, desc], i) => (
                   <li key={i} className="flex gap-5">
                     <span className="font-heading font-bold text-2xl text-comet-indigo/20 leading-none w-8 flex-shrink-0">
@@ -147,19 +148,19 @@ export default function HomePage() {
               </ol>
             </div>
 
-            {/* For Companies */}
+            {/* For Companies — secondary / right */}
             <div id="for-companies">
               <p className="text-xs font-body font-medium tracking-widest uppercase text-comet-muted mb-4">
                 For Companies
               </p>
-              <h2 className="font-heading font-bold text-2xl text-comet-text mb-8">
-                Stop reviewing unqualified applicants.
+              <h2 className="font-heading font-semibold text-xl text-comet-text mb-8">
+                Only interview the best.
               </h2>
               <ol className="space-y-6">
                 {[
-                  ["Share your open role", "Paste a LinkedIn URL or brief us directly — we handle sourcing."],
-                  ["Comet screens applicants against your criteria", "Every candidate is assessed before you see their name."],
-                  ["Receive 5–10 pre-vetted candidates within 72h", "Your shortlist arrives with scores and summaries, ready to interview."],
+                  ["Tell us what you need", "Share your role — paste a URL or brief us directly."],
+                  ["We source and pre-screen candidates", "Every applicant is assessed against your criteria before you see them."],
+                  ["You only interview the best", "Your shortlist arrives with summaries, ready to go."],
                 ].map(([title, desc], i) => (
                   <li key={i} className="flex gap-5">
                     <span className="font-heading font-bold text-2xl text-comet-indigo/20 leading-none w-8 flex-shrink-0">
@@ -177,27 +178,59 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Why Comet ── */}
+      <section className="bg-comet-surface border-b border-comet-border">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="grid sm:grid-cols-3 gap-8 sm:gap-12">
+            <div>
+              <p className="font-heading font-bold text-sm text-comet-text mb-2">
+                Curated, not scraped
+              </p>
+              <p className="text-sm text-comet-muted font-body leading-relaxed">
+                Every role is reviewed before it goes live. No auto-imported junk.
+              </p>
+            </div>
+            <div>
+              <p className="font-heading font-bold text-sm text-comet-text mb-2">
+                Screened before you see them
+              </p>
+              <p className="text-sm text-comet-muted font-body leading-relaxed">
+                Candidates arrive pre-qualified — companies only see people worth their time.
+              </p>
+            </div>
+            <div>
+              <p className="font-heading font-bold text-sm text-comet-text mb-2">
+                Fast by design
+              </p>
+              <p className="text-sm text-comet-muted font-body leading-relaxed">
+                Most placements close in under 2 weeks. Speed is a feature, not a promise.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── Footer CTA ── */}
-      <section className="bg-comet-surface">
+      <section className="bg-white">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 py-16 text-center">
           <h2 className="font-heading font-bold text-2xl text-comet-text mb-3">
-            Ready to move faster on your next hire?
+            Ready to find your next role?
           </h2>
           <p className="text-comet-muted font-body mb-8 text-sm">
-            We deliver pre-vetted candidates within 72 hours. No job boards, no noise.
+            Hand-picked roles, fast screening, direct introductions.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/jobs"
               className="inline-flex items-center justify-center px-6 py-3 rounded-md bg-comet-indigo text-white text-sm font-medium font-body hover:bg-[#3730A3] transition-colors"
             >
-              Browse open roles
+              Browse open roles →
             </Link>
             <Link
-              href="/#for-companies"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-md border border-comet-border text-comet-text text-sm font-medium font-body hover:bg-white transition-colors"
+              href="/about"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-md border border-comet-border text-comet-text text-sm font-medium font-body hover:bg-comet-surface transition-colors"
             >
-              Get in touch
+              Hiring? Let&apos;s talk →
             </Link>
           </div>
         </div>

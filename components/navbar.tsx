@@ -35,10 +35,10 @@ export function Navbar() {
             <Link
               href="/jobs"
               className={cn(
-                "text-sm font-body transition-colors",
+                "text-sm font-body font-medium transition-colors",
                 pathname.startsWith("/jobs")
-                  ? "text-comet-indigo font-medium"
-                  : "text-comet-muted hover:text-comet-text"
+                  ? "text-comet-indigo"
+                  : "text-comet-text hover:text-comet-indigo"
               )}
             >
               Browse Jobs
