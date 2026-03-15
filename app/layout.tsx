@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Sora, Inter } from "next/font/google";
+import { Inter, Unbounded } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 
-const sora = Sora({
+const unbounded = Unbounded({
   subsets: ["latin"],
-  variable: "--font-sora",
+  variable: "--font-unbounded",
   display: "swap",
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 const inter = Inter({
@@ -46,7 +46,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${sora.variable} ${inter.variable} bg-white`}>
+      <body className={`${unbounded.variable} ${inter.variable} font-sans antialiased bg-white`}>
         <div className="min-h-screen flex flex-col">
           <Navbar />
           <main className="flex-1">{children}</main>

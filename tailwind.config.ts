@@ -22,8 +22,9 @@ const config: Config = {
         },
       },
       fontFamily: {
+        sans: ["Inter", "var(--font-inter)", "system-ui", "sans-serif"],
         display: ["var(--font-instrument-serif)", "serif"],
-        heading: ["var(--font-sora)", "sans-serif"],
+        heading: ["Unbounded", "var(--font-unbounded)", "sans-serif"],
         body: ["var(--font-inter)", "sans-serif"],
       },
       animation: {

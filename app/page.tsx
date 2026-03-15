@@ -38,7 +38,7 @@ export default function HomePage() {
           </p>
 
           {/* H1 */}
-          <h1 className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight max-w-3xl mb-6">
+          <h1 className="font-heading font-bold text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight max-w-3xl mb-6">
             Your next role,<br />
             <span className="text-[#F97316]">already shortlisted.</span>
           </h1>
