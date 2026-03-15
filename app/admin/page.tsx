@@ -192,7 +192,7 @@ export default function AdminPage() {
       <div className="min-h-screen bg-comet-surface">
         <div className="bg-white border-b border-comet-border">
           <div className="max-w-3xl mx-auto px-4 py-5 flex items-center justify-between">
-            <h1 className="font-heading font-semibold text-comet-text">
+            <h1 className="font-heading font-semibold text-comet-text uppercase tracking-tight">
               {editingId ? "Edit Job" : "Add New Job"}
             </h1>
             <button onClick={() => setShowForm(false)} className="text-sm font-body text-comet-indigo hover:underline">
@@ -390,7 +390,7 @@ export default function AdminPage() {
         {/* Dashboard */}
         {activeTab === "dashboard" && (
           <div className="p-4 sm:p-8">
-            <h1 className="font-heading font-semibold text-xl text-comet-text mb-6">Dashboard</h1>
+            <h1 className="font-heading font-semibold text-xl text-comet-text mb-6 uppercase tracking-tight">Dashboard</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
               {[
                 ["Active Listings", jobs.filter((j) => j.is_active).length],
@@ -412,7 +412,7 @@ export default function AdminPage() {
         {activeTab === "jobs" && (
           <div className="p-4 sm:p-8">
             <div className="flex items-center justify-between mb-6">
-              <h1 className="font-heading font-semibold text-xl text-comet-text">Jobs</h1>
+              <h1 className="font-heading font-semibold text-xl text-comet-text uppercase tracking-tight">Jobs</h1>
               <button onClick={openNewForm}
                 className="px-4 py-2 rounded-md bg-comet-indigo text-white text-sm font-medium font-body hover:bg-[#3730A3] transition-colors">
                 + Add Job
@@ -476,7 +476,7 @@ export default function AdminPage() {
         {activeTab === "candidates" && (
           <div className="p-4 sm:p-8">
             <div className="flex items-center justify-between mb-6">
-              <h1 className="font-heading font-semibold text-xl text-comet-text">Candidates</h1>
+              <h1 className="font-heading font-semibold text-xl text-comet-text uppercase tracking-tight">Candidates</h1>
               <button className="px-4 py-2 rounded-md border border-comet-border text-comet-muted text-sm font-body hover:text-comet-text transition-colors">
                 Export CSV
               </button>
@@ -529,7 +529,7 @@ export default function AdminPage() {
         {/* Import */}
         {activeTab === "import" && (
           <div className="p-8 max-w-2xl">
-            <h1 className="font-heading font-semibold text-xl text-comet-text mb-2">Import from LinkedIn</h1>
+            <h1 className="font-heading font-semibold text-xl text-comet-text mb-2 uppercase tracking-tight">Import from LinkedIn</h1>
             <p className="text-sm font-body text-comet-muted mb-8">
               Paste a LinkedIn job URL and we&apos;ll extract the role details automatically.
             </p>

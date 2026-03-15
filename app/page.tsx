@@ -38,7 +38,7 @@ export default function HomePage() {
           </p>
 
           {/* H1 */}
-          <h1 className="font-heading font-bold text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight max-w-3xl mb-6">
+          <h1 className="font-heading font-bold text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight max-w-3xl mb-6 uppercase tracking-tight">
             Your next role,<br />
             <span className="text-[#F97316]">already shortlisted.</span>
           </h1>
@@ -70,7 +70,7 @@ export default function HomePage() {
       <section className="bg-comet-surface border-b border-comet-border">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="font-heading font-semibold text-lg text-comet-text">Featured roles</h2>
+            <h2 className="font-heading font-semibold text-lg text-comet-text uppercase tracking-tight">Featured roles</h2>
             <Link
               href="/jobs"
               className="text-sm font-medium font-body text-comet-indigo hover:underline"
@@ -139,7 +139,7 @@ export default function HomePage() {
               <p className="text-xs font-body font-medium tracking-widest uppercase text-comet-muted mb-4">
                 For Job Seekers
               </p>
-              <h2 className="font-heading font-bold text-2xl text-comet-text mb-8">
+              <h2 className="font-heading font-bold text-2xl text-comet-text mb-8 uppercase tracking-tight">
                 Apply smarter.
               </h2>
               <ol className="space-y-6">
@@ -166,7 +166,7 @@ export default function HomePage() {
               <p className="text-xs font-body font-medium tracking-widest uppercase text-comet-muted mb-4">
                 For Companies
               </p>
-              <h2 className="font-heading font-semibold text-xl text-comet-text mb-8">
+              <h2 className="font-heading font-semibold text-xl text-comet-text mb-8 uppercase tracking-tight">
                 Only interview the best.
               </h2>
               <ol className="space-y-6">
@@ -226,7 +226,7 @@ export default function HomePage() {
       {/* ── Footer CTA ── */}
       <section className="bg-white">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 py-16 text-center">
-          <h2 className="font-heading font-bold text-2xl text-comet-text mb-3">
+          <h2 className="font-heading font-bold text-2xl text-comet-text mb-3 uppercase tracking-tight">
             Ready to find your next role?
           </h2>
           <p className="text-comet-muted font-body mb-8 text-sm">

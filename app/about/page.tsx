@@ -13,7 +13,7 @@ export default function AboutPage() {
           <p className="animate-hero-badge text-sm font-body text-tpa-gold font-semibold tracking-wider uppercase mb-4">
             <span className="mr-1.5">◆</span>Our Story
           </p>
-          <h1 className="animate-hero-title text-3xl sm:text-4xl lg:text-5xl font-bold font-heading text-tpa-hero-text mb-6">
+          <h1 className="animate-hero-title text-3xl sm:text-4xl lg:text-5xl font-bold font-heading text-tpa-hero-text mb-6 uppercase tracking-tight">
             Connecting AI Talent with <em className="italic text-tpa-gold">Opportunity</em>
           </h1>
           <p className="animate-hero-subtitle text-lg font-body text-tpa-hero-text/70 max-w-2xl mx-auto">

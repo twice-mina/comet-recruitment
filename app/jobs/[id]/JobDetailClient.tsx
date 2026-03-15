@@ -64,7 +64,7 @@ export default function JobDetailClient() {
             <span className="text-comet-text truncate">{job.title}</span>
           </nav>
 
-          <h1 className="font-heading font-bold text-2xl sm:text-3xl text-comet-text mb-2">
+          <h1 className="font-heading font-bold text-2xl sm:text-3xl text-comet-text mb-2 uppercase tracking-tight">
             {job.title}
           </h1>
           <div className="flex items-center gap-2 text-sm font-body text-comet-muted flex-wrap">

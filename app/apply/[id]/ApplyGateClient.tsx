@@ -51,7 +51,7 @@ export default function ApplyGateClient() {
             <span className="text-comet-text">Apply</span>
           </nav>
 
-          <h1 className="font-heading font-bold text-2xl text-comet-text mb-2">
+          <h1 className="font-heading font-bold text-2xl text-comet-text mb-2 uppercase tracking-tight">
             Apply for {job.title}
           </h1>
           <p className="text-sm font-body text-comet-muted">

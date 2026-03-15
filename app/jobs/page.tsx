@@ -105,7 +105,7 @@ function JobListingsContent() {
           <p className="text-xs font-body font-medium tracking-widest uppercase text-comet-muted mb-2">
             Job Board
           </p>
-          <h1 className="font-heading font-bold text-3xl text-comet-text mb-1">
+          <h1 className="font-heading font-bold text-3xl text-comet-text mb-1 uppercase tracking-tight">
             Open roles
           </h1>
           <p className="text-sm text-comet-muted font-body">
