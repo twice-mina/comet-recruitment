@@ -54,7 +54,7 @@ export default function ScreeningResultClient() {
                 Screening passed
               </h1>
               <p className="text-sm font-body text-comet-muted max-w-sm mx-auto mb-8">
-                Your application is being prepared. We&apos;ll be in touch within 48 hours with next steps and confirmation of submission to {job.employer_confidential ? "the employer" : job.company}.
+                Your application is being prepared. We&apos;ll be in touch within 48 hours with next steps and confirmation of submission to the company.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link
@@ -80,17 +80,9 @@ export default function ScreeningResultClient() {
                 Not quite yet
               </h1>
               <p className="text-sm font-body text-comet-muted max-w-sm mx-auto mb-8">
-                Your responses suggest you&apos;d benefit from more preparation before applying through Comet. You can still apply directly to the employer below.
+                Your responses suggest you&apos;d benefit from more preparation before applying through Comet. Keep refining your skills and try again.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <a
-                  href={job.apply_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-5 py-2.5 rounded-md bg-comet-indigo text-white text-sm font-medium font-body hover:bg-[#3730A3] transition-colors"
-                >
-                  Apply directly →
-                </a>
                 <Link
                   href="/jobs"
                   className="inline-flex items-center justify-center px-5 py-2.5 rounded-md border border-comet-border text-comet-muted text-sm font-body hover:text-comet-text transition-colors"

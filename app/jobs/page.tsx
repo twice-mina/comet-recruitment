@@ -76,7 +76,8 @@ function JobListingsContent() {
     if (q) {
       const matchesSearch =
         job.title.toLowerCase().includes(q) ||
-        job.company.toLowerCase().includes(q) ||
+        job.location?.toLowerCase().includes(q) ||
+        job.category?.toLowerCase().includes(q) ||
         job.description?.toLowerCase().includes(q) ||
         job.requirements?.some((r) => r.toLowerCase().includes(q));
       if (!matchesSearch) return false;
@@ -120,7 +121,7 @@ function JobListingsContent() {
             />
             <input
               type="text"
-              placeholder="Search roles, companies, or skills"
+              placeholder="Search roles, locations, or skills"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-comet-border bg-white text-sm font-body text-comet-text placeholder:text-comet-muted/60 focus:outline-none focus:ring-2 focus:ring-comet-indigo/30 focus:border-comet-indigo transition-all duration-200"

@@ -50,7 +50,7 @@ export default function SubmitApplicationClient() {
         </div>
         <h1 className="font-heading font-bold text-2xl text-comet-text mb-2">Application submitted</h1>
         <p className="text-sm font-body text-comet-muted mb-8 max-w-sm mx-auto">
-          Your application for {job.title} at {job.employer_confidential ? "Confidential Employer" : job.company} is being reviewed. We&apos;ll be in touch within 48 hours.
+          Your application for {job.title} is being reviewed. We&apos;ll be in touch within 48 hours.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link
@@ -88,7 +88,7 @@ export default function SubmitApplicationClient() {
             Complete your application
           </h1>
           <p className="text-sm font-body text-comet-muted">
-            {job.title} · {job.employer_confidential ? "Confidential Employer" : job.company}
+            {job.title}
           </p>
         </div>
       </div>

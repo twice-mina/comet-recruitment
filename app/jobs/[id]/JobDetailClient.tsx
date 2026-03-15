@@ -61,9 +61,6 @@ export default function JobDetailClient() {
     );
   }
 
-  const displayCompany = job.employer_confidential
-    ? "Confidential Employer"
-    : job.company;
   const typeLabel =
     job.job_type === "remote"
       ? "Remote"
@@ -88,8 +85,6 @@ export default function JobDetailClient() {
             {job.title}
           </h1>
           <div className="flex items-center gap-2 text-sm font-body text-comet-muted flex-wrap">
-            <span className="font-medium text-comet-text">{displayCompany}</span>
-            <span>·</span>
             <span>{job.location}</span>
             <span>·</span>
             <span>{typeLabel}</span>
@@ -218,17 +213,14 @@ export default function JobDetailClient() {
                 transition={{ duration: 0.2 }}
                 className="bg-white border border-comet-border rounded-lg p-6"
               >
-                {/* Company logo */}
+                {/* Logo */}
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-10 h-10 rounded-md bg-comet-indigo-lt border border-comet-border flex items-center justify-center flex-shrink-0">
                     <span className="text-sm font-bold font-heading text-comet-indigo">
-                      {job.company.charAt(0)}
+                      C
                     </span>
                   </div>
                   <div>
-                    <p className="font-heading font-semibold text-sm text-comet-text">
-                      {displayCompany}
-                    </p>
                     <p className="text-xs text-comet-muted font-body">
                       {job.location}
                     </p>
@@ -272,23 +264,7 @@ export default function JobDetailClient() {
                   </Link>
                 </motion.div>
 
-                <a
-                  href={job.apply_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full text-center text-xs font-body text-comet-muted hover:text-comet-text transition-colors"
-                >
-                  Apply directly to employer →
-                </a>
               </motion.div>
-
-              {/* Share */}
-              <div className="border border-comet-border rounded-lg p-4">
-                <p className="text-xs font-body text-comet-muted">
-                  Comet Recruitment is not the employer. This is an external
-                  opportunity sourced and verified by our team.
-                </p>
-              </div>
             </div>
           </div>
         </div>

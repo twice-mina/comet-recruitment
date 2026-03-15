@@ -18,7 +18,7 @@ export default function AboutPage() {
           </h1>
           <p className="animate-hero-subtitle text-lg font-body text-tpa-hero-text/70 max-w-2xl mx-auto">
             The Prompt Academy Careers platform bridges the gap between
-            AI-skilled professionals and employers who need them.
+            AI-skilled professionals and the companies that need them.
           </p>
         </div>
       </section>
@@ -139,7 +139,7 @@ export default function AboutPage() {
               </h3>
               <p className="text-sm font-body text-tpa-hero-text/60">
                 Our careers platform matches certified professionals with
-                employers actively seeking AI talent. We make the hiring process
+                hiring teams actively seeking AI talent. We make the hiring process
                 seamless for both sides.
               </p>
             </div>
@@ -167,14 +167,14 @@ export default function AboutPage() {
           <RevealOnScroll variant="scale-in">
             <div className="bg-tpa-dark-secondary rounded-2xl p-8 sm:p-12 text-center">
               <p className="text-sm font-body text-tpa-gold font-semibold tracking-wider uppercase mb-3">
-                <span className="mr-1.5">◆</span>Employers
+                <span className="mr-1.5">◆</span>Hiring Teams
               </p>
               <h2 className="text-2xl sm:text-3xl font-bold font-heading text-tpa-hero-text mb-4">
-                For <em className="italic text-tpa-gold">Employers</em>
+                For <em className="italic text-tpa-gold">Hiring Teams</em>
               </h2>
               <p className="text-tpa-hero-text/60 font-body mb-8 max-w-xl mx-auto">
-                Looking to hire AI-skilled talent? Post your positions on TPA
-                Careers and get access to our network of certified professionals.
+                Looking to hire AI-skilled talent? Work with TPA Careers and get
+                access to our network of certified professionals.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link

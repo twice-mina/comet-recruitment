@@ -102,7 +102,6 @@ export default function DashboardPage() {
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                       <div>
                         <h3 className="text-lg font-semibold font-heading text-tpa-text">{app.jobTitle}</h3>
-                        <p className="text-sm font-body text-tpa-text/60">{app.company}</p>
                       </div>
                       <div className="flex items-center gap-3">
                         <StatusBadge status={app.status} />

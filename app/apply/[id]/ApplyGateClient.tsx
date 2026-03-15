@@ -82,8 +82,7 @@ export default function ApplyGateClient() {
             Apply for {job.title}
           </h1>
           <p className="text-sm font-body text-comet-muted">
-            {job.employer_confidential ? "Confidential Employer" : job.company}{" "}
-            · Complete screening to apply via Comet · ~10 minutes
+            Complete screening to apply via Comet · ~10 minutes
           </p>
         </div>
       </div>
@@ -101,7 +100,7 @@ export default function ApplyGateClient() {
           <div className="flex items-center gap-3 mb-3">
             <div className="w-8 h-8 rounded-md bg-comet-indigo-lt border border-comet-border flex items-center justify-center flex-shrink-0">
               <span className="text-xs font-bold font-heading text-comet-indigo">
-                {job.company.charAt(0)}
+                C
               </span>
             </div>
             <div>
@@ -109,10 +108,7 @@ export default function ApplyGateClient() {
                 {job.title}
               </p>
               <p className="text-xs font-body text-comet-muted">
-                {job.employer_confidential
-                  ? "Confidential Employer"
-                  : job.company}{" "}
-                · {job.location}
+                {job.location}
               </p>
             </div>
           </div>
@@ -128,19 +124,10 @@ export default function ApplyGateClient() {
               Start screening →
             </Link>
           </motion.div>
-          <a
-            href={job.apply_url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block w-full text-center text-sm font-body text-comet-muted hover:text-comet-text transition-colors py-2"
-          >
-            Apply directly to employer instead
-          </a>
         </div>
 
         <p className="text-xs font-body text-comet-muted/60 text-center mt-6">
-          Comet Recruitment is not the employer. Screening does not guarantee an
-          interview or offer.
+          Screening does not guarantee an interview or offer.
         </p>
       </div>
     </PageMotion>

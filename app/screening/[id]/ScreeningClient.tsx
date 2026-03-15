@@ -62,7 +62,7 @@ export default function ScreeningClient() {
       <div className="bg-white border-b border-comet-border">
         <div className="max-w-xl mx-auto px-4 sm:px-6 py-6">
           <p className="text-xs font-body text-comet-muted mb-1">
-            {job.title} · {job.employer_confidential ? "Confidential Employer" : job.company}
+            {job.title}
           </p>
           <div className="flex items-center justify-between mb-3">
             <p className="text-sm font-body font-medium text-comet-text">
