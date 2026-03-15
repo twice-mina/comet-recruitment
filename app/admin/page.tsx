@@ -293,11 +293,53 @@ export default function AdminPage() {
     );
   }
 
+  const NAV_TABS: [SidebarTab, string][] = [
+    ["dashboard", "Dashboard"],
+    ["jobs", "Jobs"],
+    ["candidates", "Candidates"],
+    ["import", "Import"],
+  ];
+
   // Main admin layout
   return (
-    <div className="min-h-screen bg-comet-surface flex">
-      {/* Sidebar */}
-      <aside className="w-52 bg-white border-r border-comet-border flex-shrink-0 flex flex-col">
+    <div className="min-h-screen bg-comet-surface flex flex-col md:flex-row">
+      {/* Mobile top nav */}
+      <div className="md:hidden bg-white border-b border-comet-border">
+        <div className="flex items-center justify-between px-4 py-3 border-b border-comet-border">
+          <div className="flex items-center gap-2">
+            <svg width="16" height="16" viewBox="0 0 22 22" fill="none">
+              <circle cx="14" cy="8" r="5" fill="#4338CA" />
+              <path d="M10.5 11.5L3 19" stroke="#F97316" strokeWidth="2.5" strokeLinecap="round" />
+            </svg>
+            <span className="font-heading font-semibold text-sm text-comet-text">Comet Admin</span>
+          </div>
+          <button onClick={handleLogout} className="text-xs font-body text-comet-muted hover:text-comet-text transition-colors">
+            Sign out
+          </button>
+        </div>
+        <div className="flex overflow-x-auto no-scrollbar">
+          {NAV_TABS.map(([tab, label]) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={cn(
+                "flex-shrink-0 px-4 py-2.5 text-sm font-body border-b-2 transition-colors whitespace-nowrap",
+                activeTab === tab
+                  ? "border-comet-indigo text-comet-indigo font-medium"
+                  : "border-transparent text-comet-muted hover:text-comet-text"
+              )}
+            >
+              {label}
+              {tab === "jobs" && jobs.length > 0 && (
+                <span className="ml-1 text-xs text-comet-muted">({jobs.length})</span>
+              )}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop Sidebar */}
+      <aside className="hidden md:flex w-52 bg-white border-r border-comet-border flex-shrink-0 flex-col">
         <div className="p-5 border-b border-comet-border">
           <div className="flex items-center gap-2">
             <svg width="16" height="16" viewBox="0 0 22 22" fill="none">
@@ -309,12 +351,7 @@ export default function AdminPage() {
         </div>
 
         <nav className="flex-1 p-3 space-y-0.5">
-          {([
-            ["dashboard", "Dashboard"],
-            ["jobs", "Jobs"],
-            ["candidates", "Candidates"],
-            ["import", "Import"],
-          ] as [SidebarTab, string][]).map(([tab, label]) => (
+          {NAV_TABS.map(([tab, label]) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -343,7 +380,7 @@ export default function AdminPage() {
       </aside>
 
       {/* Main content */}
-      <main className="flex-1 overflow-auto">
+      <main className="flex-1 overflow-auto min-w-0">
         {error && (
           <div className="bg-red-50 border-b border-red-200 px-6 py-3">
             <p className="text-sm text-red-600 font-body">{error}</p>
@@ -352,9 +389,9 @@ export default function AdminPage() {
 
         {/* Dashboard */}
         {activeTab === "dashboard" && (
-          <div className="p-8">
+          <div className="p-4 sm:p-8">
             <h1 className="font-heading font-semibold text-xl text-comet-text mb-6">Dashboard</h1>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
               {[
                 ["Active Listings", jobs.filter((j) => j.is_active).length],
                 ["Applications this week", MOCK_CANDIDATES.length],
@@ -373,7 +410,7 @@ export default function AdminPage() {
 
         {/* Jobs */}
         {activeTab === "jobs" && (
-          <div className="p-8">
+          <div className="p-4 sm:p-8">
             <div className="flex items-center justify-between mb-6">
               <h1 className="font-heading font-semibold text-xl text-comet-text">Jobs</h1>
               <button onClick={openNewForm}
@@ -385,8 +422,8 @@ export default function AdminPage() {
             {jobs.length === 0 ? (
               <p className="text-sm font-body text-comet-muted">No jobs yet. Click &ldquo;+ Add Job&rdquo; to get started.</p>
             ) : (
-              <div className="bg-white border border-comet-border rounded-lg overflow-hidden">
-                <table className="w-full text-sm">
+              <div className="bg-white border border-comet-border rounded-lg overflow-x-auto">
+                <table className="w-full text-sm min-w-[500px]">
                   <thead>
                     <tr className="bg-comet-surface border-b border-comet-border text-left">
                       <th className="px-4 py-3 text-xs font-medium font-body text-comet-muted uppercase tracking-wide">Status</th>
@@ -437,7 +474,7 @@ export default function AdminPage() {
 
         {/* Candidates */}
         {activeTab === "candidates" && (
-          <div className="p-8">
+          <div className="p-4 sm:p-8">
             <div className="flex items-center justify-between mb-6">
               <h1 className="font-heading font-semibold text-xl text-comet-text">Candidates</h1>
               <button className="px-4 py-2 rounded-md border border-comet-border text-comet-muted text-sm font-body hover:text-comet-text transition-colors">
@@ -445,8 +482,8 @@ export default function AdminPage() {
               </button>
             </div>
 
-            <div className="bg-white border border-comet-border rounded-lg overflow-hidden">
-              <table className="w-full text-sm">
+            <div className="bg-white border border-comet-border rounded-lg overflow-x-auto">
+              <table className="w-full text-sm min-w-[500px]">
                 <thead>
                   <tr className="bg-comet-surface border-b border-comet-border text-left">
                     <th className="px-4 py-3 text-xs font-medium font-body text-comet-muted uppercase tracking-wide">Name</th>

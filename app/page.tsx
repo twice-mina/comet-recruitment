@@ -6,6 +6,7 @@ import { mockJobs } from "@/lib/mock-jobs";
 import { Job } from "@/lib/types";
 import { subscribeToActiveJobs } from "@/lib/firebase/jobs";
 import { formatSalary } from "@/lib/format";
+import { Starfield } from "@/components/starfield";
 
 export default function HomePage() {
   const [jobs, setJobs] = useState<Job[]>(mockJobs.filter((j) => j.is_active));
@@ -24,29 +25,40 @@ export default function HomePage() {
   return (
     <div className="animate-page-in">
       {/* ── Hero ── */}
-      <section className="bg-white border-b border-comet-border">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
-          <p className="text-xs font-body font-medium tracking-widest uppercase text-comet-muted mb-5">
+      <section className="relative min-h-[90vh] flex items-center bg-[#09090F] overflow-hidden border-b border-white/5">
+        <Starfield />
+
+        {/* Subtle comet-indigo radial glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(67,56,202,0.15)_0%,transparent_70%)]" />
+
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 w-full">
+          {/* Eyebrow */}
+          <p className="text-xs tracking-[0.2em] uppercase text-white/40 mb-6 font-body font-medium">
             Roles Worth Applying For
           </p>
-          <h1 className="font-heading font-bold text-5xl sm:text-6xl text-comet-text leading-tight mb-5 max-w-2xl">
-            Your next role,{" "}
-            <br />
-            <span className="text-comet-indigo">already shortlisted.</span>
+
+          {/* H1 */}
+          <h1 className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight max-w-3xl mb-6">
+            Your next role,<br />
+            <span className="text-[#F97316]">already shortlisted.</span>
           </h1>
-          <p className="text-lg text-comet-muted font-body max-w-lg mb-8 leading-relaxed">
+
+          {/* Subline */}
+          <p className="text-white/60 text-lg sm:text-xl max-w-xl mb-10 font-body leading-relaxed">
             Browse hand-picked roles from top companies. Apply once — we handle the screening and make the introduction.
           </p>
+
+          {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-3">
             <Link
               href="/jobs"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-md bg-comet-indigo text-white text-sm font-medium font-body hover:bg-[#3730A3] transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 bg-[#4338CA] hover:bg-[#3730A3] text-white font-medium font-body rounded-lg transition-colors"
             >
               Browse open roles →
             </Link>
             <Link
               href="/about"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-md border border-comet-border text-comet-text text-sm font-medium font-body hover:bg-comet-surface transition-colors"
+              className="inline-flex items-center justify-center px-6 py-3 border border-white/20 hover:border-white/40 text-white/80 hover:text-white font-medium font-body rounded-lg transition-colors"
             >
               Hiring? Let&apos;s talk →
             </Link>
@@ -71,9 +83,9 @@ export default function HomePage() {
             {featuredJobs.map((job) => (
               <div
                 key={job.id}
-                className="flex items-center justify-between py-4 gap-4 hover:bg-white transition-colors px-2 -mx-2 rounded"
+                className="flex items-center justify-between py-4 gap-3 hover:bg-white transition-colors px-2 -mx-2 rounded"
               >
-                <div className="flex items-center gap-4 min-w-0">
+                <div className="flex items-center gap-3 min-w-0">
                   {/* Company logo placeholder */}
                   <div className="w-8 h-8 rounded-md bg-comet-indigo-lt border border-comet-border flex items-center justify-center flex-shrink-0">
                     <span className="text-xs font-bold font-heading text-comet-indigo">
@@ -84,20 +96,21 @@ export default function HomePage() {
                     <p className="font-heading font-semibold text-sm text-comet-text truncate">
                       {job.title}
                     </p>
-                    <p className="text-xs text-comet-muted font-body">
-                      {job.company} · {job.location} · {job.job_type === "remote" ? "Remote" : job.job_type === "hybrid" ? "Hybrid" : "On-site"}
+                    <p className="text-xs text-comet-muted font-body truncate">
+                      {job.company}
+                      <span className="hidden sm:inline"> · {job.location} · {job.job_type === "remote" ? "Remote" : job.job_type === "hybrid" ? "Hybrid" : "On-site"}</span>
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center gap-4 flex-shrink-0">
+                <div className="flex items-center gap-3 flex-shrink-0">
                   {job.salary_min && job.salary_max && (
-                    <span className="hidden sm:block text-sm text-comet-muted font-body">
+                    <span className="hidden sm:block text-sm text-comet-muted font-body whitespace-nowrap">
                       {formatSalary(job.salary_min, job.salary_max)}
                     </span>
                   )}
                   <Link
                     href={`/apply/${job.id}`}
-                    className="text-sm font-medium font-body text-comet-indigo hover:underline"
+                    className="text-sm font-medium font-body text-comet-indigo hover:underline whitespace-nowrap"
                   >
                     Apply →
                   </Link>
@@ -181,7 +194,7 @@ export default function HomePage() {
       {/* ── Why Comet ── */}
       <section className="bg-comet-surface border-b border-comet-border">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid sm:grid-cols-3 gap-8 sm:gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12">
             <div>
               <p className="font-heading font-bold text-sm text-comet-text mb-2">
                 Curated, not scraped

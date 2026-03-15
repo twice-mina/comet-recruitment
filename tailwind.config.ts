@@ -31,6 +31,20 @@ const config: Config = {
         fadeIn: "hero-stagger 0.6s cubic-bezier(0.16, 1, 0.3, 1) both",
         scaleIn: "hero-scale-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both",
         shimmer: "shimmer 2s ease-in-out infinite",
+        twinkle: "twinkle 3s ease-in-out infinite",
+        shoot: "shoot 6s linear infinite",
+      },
+      keyframes: {
+        twinkle: {
+          "0%, 100%": { opacity: "0.15", transform: "scale(1)" },
+          "50%": { opacity: "1", transform: "scale(1.3)" },
+        },
+        shoot: {
+          "0%": { transform: "translateX(-200px) translateY(-50px)", opacity: "0" },
+          "10%": { opacity: "0.8" },
+          "90%": { opacity: "0.5" },
+          "100%": { transform: "translateX(calc(100vw + 200px)) translateY(50px)", opacity: "0" },
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

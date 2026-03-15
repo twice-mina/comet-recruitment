@@ -163,7 +163,7 @@ export default function JobDetailClient() {
 
           {/* Sidebar */}
           <div className="lg:col-span-1">
-            <div className="sticky top-24 space-y-4">
+            <div className="lg:sticky lg:top-24 space-y-4">
               {/* Apply card */}
               <div className="bg-white border border-comet-border rounded-lg p-6">
                 {/* Company logo */}
