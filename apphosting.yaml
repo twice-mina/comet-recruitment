@@ -1,12 +1,3 @@
-# ============================================
-# FIREBASE APP HOSTING CONFIGURATION
-# ============================================
-# SETUP:
-# 1. Replace YOUR_PROJECT_ID with your Firebase project ID
-# 2. Replace YOUR_DOMAIN with your app's domain
-# 3. Run: firebase apphosting:secrets:set <SECRET_NAME> for each secret
-# ============================================
-
 runConfig:
   minInstances: 0
   maxInstances: 2
@@ -15,21 +6,15 @@ runConfig:
   concurrency: 80
 
 env:
-  # ============================================
-  # APP CONFIGURATION
-  # ============================================
   - variable: NEXT_PUBLIC_APP_NAME
     value: "Comet Recruitment"
 
   - variable: NEXT_PUBLIC_APP_DESCRIPTION
-    value: "Comet Recruitment application"
+    value: "Pre-screened. Ready to land."
 
   - variable: NEXT_PUBLIC_APP_URL
     value: https://comet-73633.web.app
 
-  # ============================================
-  # FIREBASE CONFIGURATION
-  # ============================================
   - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
     value: comet-73633
 
@@ -39,23 +24,17 @@ env:
   - variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
     value: comet-73633.firebasestorage.app
 
-  - variable: GOOGLE_CLOUD_PROJECT
-    value: comet-73633
-
-  # ============================================
-  # SECRETS (set via firebase apphosting:secrets:set)
-  # ============================================
   - variable: NEXT_PUBLIC_FIREBASE_API_KEY
-    secret: NEXT_PUBLIC_FIREBASE_API_KEY
+    value: AIzaSyCzjSEge8NHc5F3HSecm79N1xd0KyzUK8Q
 
   - variable: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
-    secret: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+    value: "263785212933"
 
   - variable: NEXT_PUBLIC_FIREBASE_APP_ID
-    secret: NEXT_PUBLIC_FIREBASE_APP_ID
+    value: 1:263785212933:web:520bd0fd523e458325806c
 
-  - variable: GOOGLE_CLIENT_ID
-    secret: GOOGLE_CLIENT_ID
+  - variable: NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
+    value: G-MFHHFYGYES
 
-  - variable: GOOGLE_CLIENT_SECRET
-    secret: GOOGLE_CLIENT_SECRET
+  - variable: GOOGLE_CLOUD_PROJECT
+    value: comet-73633
