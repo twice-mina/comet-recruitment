@@ -5,8 +5,8 @@
 @import "tw-animate-css";
 
 :root {
-  --background: rgb(250, 248, 243);
-  --foreground: rgb(26, 26, 26);
+  --background: #FFFFFF;
+  --foreground: #09090F;
   --radius: 0.625rem;
 }
 
@@ -20,7 +20,7 @@ html {
     @apply outline-none;
   }
   body {
-    @apply bg-tpa-cream text-tpa-text antialiased font-body;
+    @apply bg-white text-comet-text antialiased font-body;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
@@ -90,7 +90,7 @@ button {
   animation: hero-stagger 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both;
 }
 
-/* ─── Shimmer effect for gold CTAs ─── */
+/* ─── Shimmer effect for CTAs ─── */
 @keyframes shimmer {
   0% {
     background-position: -200% center;
@@ -98,31 +98,6 @@ button {
   100% {
     background-position: 200% center;
   }
-}
-
-.btn-gold-shimmer {
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-gold-shimmer::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    120deg,
-    transparent 30%,
-    rgba(255, 255, 255, 0.2) 50%,
-    transparent 70%
-  );
-  background-size: 200% 100%;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.btn-gold-shimmer:hover::after {
-  opacity: 1;
-  animation: shimmer 1.5s ease infinite;
 }
 
 /* ─── Link underline slide ─── */
@@ -146,28 +121,6 @@ button {
   width: 100%;
 }
 
-/* ─── Card hover lift ─── */
-.card-hover {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.3s ease;
-}
-
-.card-hover:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px -8px rgba(0, 0, 0, 0.08),
-    0 4px 12px -4px rgba(0, 0, 0, 0.04);
-}
-
-/* ─── Button scale hover ─── */
-.btn-hover:hover {
-  transform: scale(1.02);
-}
-
-.btn-hover:active {
-  transform: scale(0.98);
-}
-
 /* ─── Progress bar animation ─── */
 @keyframes progress-fill {
   from {
@@ -177,53 +130,6 @@ button {
 
 .animate-progress {
   animation: progress-fill 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* ─── Score badge bounce in ─── */
-@keyframes badge-bounce-in {
-  0% {
-    opacity: 0;
-    transform: scale(0.3);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  70% {
-    transform: scale(0.95);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.animate-badge-in {
-  animation: badge-bounce-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
-}
-
-/* ─── Checkmark success ─── */
-@keyframes check-scale {
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-  60% {
-    transform: scale(1.1);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.animate-check-in {
-  animation: check-scale 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
-}
-
-/* ─── Navbar scroll effect ─── */
-.navbar-scrolled {
-  background-color: rgba(3, 27, 29, 0.98) !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 /* ─── Mobile menu animation ─── */
@@ -246,62 +152,14 @@ button {
 input:focus,
 textarea:focus,
 select:focus {
-  border-color: rgb(196, 162, 101) !important;
-  box-shadow: 0 0 0 3px rgba(196, 162, 101, 0.15) !important;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  border-color: #4338CA !important;
+  box-shadow: 0 0 0 3px rgba(67, 56, 202, 0.1) !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* ─── Radio/Checkbox smooth state ─── */
 .radio-option {
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.radio-option:hover {
-  border-color: rgba(196, 162, 101, 0.4);
-  background-color: rgba(196, 162, 101, 0.02);
-}
-
-/* ─── Skeleton pulse ─── */
-@keyframes luxury-pulse {
-  0%, 100% {
-    opacity: 0.4;
-  }
-  50% {
-    opacity: 0.8;
-  }
-}
-
-.animate-luxury-pulse {
-  animation: luxury-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-/* ─── Count-up number reveal ─── */
-@keyframes number-reveal {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-number-reveal {
-  animation: number-reveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-/* ─── Filter pill transition ─── */
-.filter-pill {
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.filter-pill:hover {
-  transform: translateY(-1px);
-}
-
-.filter-pill:active {
-  transform: translateY(0);
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ─── Page fade in ─── */
@@ -315,7 +173,7 @@ select:focus {
 }
 
 .animate-page-in {
-  animation: page-fade-in 0.4s ease both;
+  animation: page-fade-in 0.3s ease both;
 }
 
 /* ─── Respect reduced motion ─── */
@@ -328,19 +186,6 @@ select:focus {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-
-  .card-hover:hover {
-    transform: none;
-  }
-
-  .btn-hover:hover,
-  .btn-hover:active {
-    transform: none;
-  }
-
-  .filter-pill:hover {
-    transform: none;
-  }
 }
 
 /* ─── Mobile touch targets ─── */
@@ -352,15 +197,13 @@ select:focus {
     min-width: 44px;
   }
 
-  /* Ensure no horizontal overflow */
   body {
     overflow-x: hidden;
   }
 
-  /* Comfortable form inputs on mobile */
   input,
   textarea,
   select {
-    font-size: 16px !important; /* Prevents zoom on iOS */
+    font-size: 16px !important;
   }
 }

@@ -1,41 +1,41 @@
 import type { Metadata } from "next";
-import { Playfair_Display, DM_Sans } from "next/font/google";
+import { Sora, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 
-const playfair = Playfair_Display({
+const sora = Sora({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-sora",
   display: "swap",
+  weight: ["400", "600", "700"],
 });
 
-const dmSans = DM_Sans({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
+  variable: "--font-inter",
   display: "swap",
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "TPA Careers — AI Jobs & Prompt Engineering Roles",
-    template: "%s | TPA Careers",
+    default: "Comet Recruitment — Pre-screened talent, faster hires",
+    template: "%s | Comet Recruitment",
   },
-  description:
-    "Find your next AI career. The Prompt Academy connects certified AI professionals with top employers seeking prompt engineering, machine learning, and AI talent.",
+  description: "Pre-screened. Ready to land.",
   openGraph: {
-    title: "TPA Careers — AI Jobs & Prompt Engineering Roles",
+    title: "Comet Recruitment — Pre-screened talent, faster hires",
     description:
-      "Find your next AI career. The Prompt Academy connects certified AI professionals with top employers.",
-    url: "https://careers.thepromptacademy.com",
-    siteName: "TPA Careers",
+      "Comet sources, screens, and delivers top talent so you interview fewer people and hire faster.",
+    url: "https://cometrecruitment.com",
+    siteName: "Comet Recruitment",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "TPA Careers — AI Jobs & Prompt Engineering Roles",
-    description:
-      "Find your next AI career. The Prompt Academy connects certified AI professionals with top employers.",
+    title: "Comet Recruitment",
+    description: "Pre-screened. Ready to land.",
   },
 };
 
@@ -46,7 +46,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${playfair.variable} ${dmSans.variable}`}>
+      <body className={`${sora.variable} ${inter.variable} bg-white`}>
         <div className="min-h-screen flex flex-col">
           <Navbar />
           <main className="flex-1">{children}</main>

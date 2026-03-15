@@ -10,22 +10,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        tpa: {
-          dark: "rgb(3, 27, 29)",
-          "dark-secondary": "rgb(10, 46, 49)",
-          gold: "rgb(196, 162, 101)",
-          "gold-light": "rgb(216, 189, 143)",
-          "gold-dark": "rgb(170, 138, 78)",
-          cream: "rgb(250, 248, 243)",
-          "cream-light": "rgb(253, 252, 250)",
-          border: "rgb(240, 237, 229)",
-          text: "rgb(26, 26, 26)",
-          "hero-text": "rgb(250, 248, 243)",
+        comet: {
+          bg: "#FFFFFF",
+          surface: "#F8F8FC",
+          border: "#E5E5E5",
+          text: "#09090F",
+          muted: "#6B7280",
+          indigo: "#4338CA",
+          "indigo-lt": "#EEF2FF",
+          streak: "#F97316",
         },
       },
       fontFamily: {
-        heading: ["var(--font-playfair)", "serif"],
-        body: ["var(--font-dm-sans)", "sans-serif"],
+        display: ["var(--font-instrument-serif)", "serif"],
+        heading: ["var(--font-sora)", "sans-serif"],
+        body: ["var(--font-inter)", "sans-serif"],
       },
       animation: {
         fadeInUp: "hero-fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both",

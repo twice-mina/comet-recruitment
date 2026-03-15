@@ -2,106 +2,70 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="bg-tpa-dark border-t border-tpa-dark-secondary">
+    <footer className="bg-comet-surface border-t border-comet-border">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
           {/* Brand */}
-          <div className="md:col-span-1">
-            <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-tpa-gold flex items-center justify-center">
-                <span className="text-tpa-dark font-bold text-sm font-heading">T</span>
-              </div>
-              <span className="font-heading font-bold text-lg text-tpa-hero-text">
-                TPA <span className="text-tpa-gold">Careers</span>
-              </span>
-            </div>
-            <p className="text-tpa-hero-text/60 text-sm font-body max-w-md">
-              Curated AI jobs with proficiency screening. Apply through Prompt Academy&apos;s trusted channel.
+          <div>
+            <Link href="/" className="flex items-center gap-2 mb-3">
+              <svg width="20" height="20" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="14" cy="8" r="5" fill="#4338CA" />
+                <path d="M10.5 11.5L3 19" stroke="#F97316" strokeWidth="2.5" strokeLinecap="round" />
+                <path d="M9 13L4 18" stroke="#F97316" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
+              </svg>
+              <span className="font-heading font-semibold text-sm text-comet-text">Comet Recruitment</span>
+            </Link>
+            <p className="text-comet-muted text-sm font-body max-w-xs">
+              Pre-screened. Ready to land.
             </p>
           </div>
 
-          {/* Platform */}
-          <div>
-            <h3 className="font-heading font-semibold text-tpa-hero-text text-sm mb-3">
-              Platform
-            </h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/jobs" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors link-underline">
-                  Browse Jobs
-                </Link>
-              </li>
-              <li>
-                <Link href="/#how-it-works" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors link-underline">
-                  How It Works
-                </Link>
-              </li>
-              <li>
-                <Link href="/dashboard" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors link-underline">
-                  Dashboard
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div>
-            <h3 className="font-heading font-semibold text-tpa-hero-text text-sm mb-3">
-              Resources
-            </h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="https://thepromptacademy.com" target="_blank" rel="noopener noreferrer" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors link-underline">
-                  The Prompt Academy
-                </a>
-              </li>
-              <li>
-                <a href="https://thepromptacademy.com" target="_blank" rel="noopener noreferrer" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors link-underline">
-                  Get Certified
-                </a>
-              </li>
-              <li>
-                <a href="https://thepromptacademy.com" target="_blank" rel="noopener noreferrer" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors link-underline">
-                  AI Career Guide
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* For Employers */}
-          <div>
-            <h3 className="font-heading font-semibold text-tpa-hero-text text-sm mb-3">
-              For Employers
-            </h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="https://thepromptacademy.com" target="_blank" rel="noopener noreferrer" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors link-underline">
-                  Post a Job
-                </a>
-              </li>
-              <li>
-                <a href="https://thepromptacademy.com" target="_blank" rel="noopener noreferrer" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors link-underline">
-                  Talent Network
-                </a>
-              </li>
-              <li>
-                <a href="https://thepromptacademy.com" target="_blank" rel="noopener noreferrer" className="text-sm font-body text-tpa-hero-text/60 hover:text-tpa-gold transition-colors link-underline">
-                  Contact Us
-                </a>
-              </li>
-            </ul>
+          {/* Links */}
+          <div className="flex gap-16">
+            <div>
+              <h3 className="font-heading font-semibold text-comet-text text-xs uppercase tracking-widest mb-3">
+                Platform
+              </h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/jobs" className="text-sm font-body text-comet-muted hover:text-comet-text transition-colors">
+                    Browse Jobs
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/#how-it-works" className="text-sm font-body text-comet-muted hover:text-comet-text transition-colors">
+                    How It Works
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-heading font-semibold text-comet-text text-xs uppercase tracking-widest mb-3">
+                Companies
+              </h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/#for-companies" className="text-sm font-body text-comet-muted hover:text-comet-text transition-colors">
+                    Hire with Comet
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/admin" className="text-sm font-body text-comet-muted hover:text-comet-text transition-colors">
+                    Admin
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-tpa-dark-secondary">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-sm font-body text-tpa-hero-text/40">
-              &copy; {new Date().getFullYear()} The Prompt Academy. All rights reserved.
-            </p>
-            <p className="text-xs font-body text-tpa-hero-text/30">
-              TPA Careers curates external job listings. Prompt Academy is not the employer unless explicitly stated.
-            </p>
-          </div>
+        <div className="mt-10 pt-6 border-t border-comet-border flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-xs font-body text-comet-muted">
+            &copy; {new Date().getFullYear()} Comet Recruitment. All rights reserved.
+          </p>
+          <p className="text-xs font-body text-comet-muted">
+            Comet is not the employer unless explicitly stated.
+          </p>
         </div>
       </div>
     </footer>

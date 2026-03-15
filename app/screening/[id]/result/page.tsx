@@ -1,4 +1,4 @@
-import { mockJobs } from "@/lib/mock-data";
+import { mockJobs } from "@/lib/mock-jobs";
 import ScreeningResultClient from "./ScreeningResultClient";
 
 export function generateStaticParams() {

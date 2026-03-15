@@ -1,4 +1,4 @@
-import { mockJobs } from "@/lib/mock-data";
+import { mockJobs } from "@/lib/mock-jobs";
 import SubmitApplicationClient from "./SubmitApplicationClient";
 
 export function generateStaticParams() {

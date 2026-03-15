@@ -1,21 +1,71 @@
 "use client";
 
 import { Suspense, useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
-import { SearchBar } from "@/components/search-bar";
-import { JobFilters } from "@/components/job-filters";
-import { JobCard } from "@/components/job-card";
-import { RevealOnScroll } from "@/components/reveal-on-scroll";
-import { searchJobs } from "@/lib/mock-data";
+import { useSearchParams, useRouter } from "next/navigation";
+import Link from "next/link";
+import { mockJobs, searchJobs } from "@/lib/mock-jobs";
 import { Job } from "@/lib/types";
 import { subscribeToActiveJobs } from "@/lib/firebase/jobs";
+import { formatSalary } from "@/lib/format";
+import { cn } from "@/lib/utils";
+
+const FILTER_TABS = [
+  { label: "All", value: "" },
+  { label: "Engineering", value: "Engineering" },
+  { label: "Design", value: "Design" },
+  { label: "Product", value: "Product" },
+  { label: "Marketing", value: "Marketing" },
+  { label: "Operations", value: "Operations" },
+  { label: "Remote", value: "remote" },
+];
+
+function JobRow({ job }: { job: Job }) {
+  const typeLabel =
+    job.job_type === "remote" ? "Remote" :
+    job.job_type === "hybrid" ? "Hybrid" : "On-site";
+
+  return (
+    <div className="flex items-center justify-between py-4 px-4 hover:bg-comet-surface transition-colors gap-4 border-b border-comet-border last:border-0">
+      <div className="flex items-center gap-4 min-w-0">
+        {/* Company logo */}
+        <div className="w-8 h-8 rounded-md bg-comet-indigo-lt border border-comet-border flex items-center justify-center flex-shrink-0">
+          <span className="text-xs font-bold font-heading text-comet-indigo">
+            {job.company.charAt(0)}
+          </span>
+        </div>
+
+        {/* Role info */}
+        <div className="min-w-0">
+          <p className="font-heading font-semibold text-sm text-comet-text">
+            {job.title}
+          </p>
+          <p className="text-xs text-comet-muted font-body truncate">
+            {job.company} · {job.location} · {typeLabel}
+          </p>
+        </div>
+      </div>
+
+      <div className="flex items-center gap-6 flex-shrink-0">
+        {job.salary_min && job.salary_max && (
+          <span className="hidden md:block text-sm text-comet-muted font-body">
+            {formatSalary(job.salary_min, job.salary_max)}
+          </span>
+        )}
+        <Link
+          href={`/apply/${job.id}`}
+          className="text-sm font-medium font-body text-comet-indigo hover:underline"
+        >
+          Apply →
+        </Link>
+      </div>
+    </div>
+  );
+}
 
 function JobListingsContent() {
   const searchParams = useSearchParams();
-  const query = searchParams.get("q") || "";
+  const router = useRouter();
   const category = searchParams.get("category") || "";
-  const jobType = searchParams.get("type") || "";
-  const level = searchParams.get("level") || "";
 
   const [allJobs, setAllJobs] = useState<Job[] | null>(null);
 
@@ -23,96 +73,95 @@ function JobListingsContent() {
     const unsub = subscribeToActiveJobs((firestoreJobs) => {
       if (firestoreJobs.length > 0) {
         setAllJobs(firestoreJobs);
+      } else {
+        setAllJobs(mockJobs.filter((j) => j.is_active));
       }
     });
     return unsub;
   }, []);
 
-  // Filter logic
-  let jobs: Job[];
-  if (allJobs) {
-    jobs = allJobs;
-    if (query) {
-      const q = query.toLowerCase();
-      jobs = jobs.filter(
-        (job) =>
-          job.title.toLowerCase().includes(q) ||
-          job.company.toLowerCase().includes(q) ||
-          job.location.toLowerCase().includes(q) ||
-          job.category.toLowerCase().includes(q)
-      );
-    }
-    if (category) jobs = jobs.filter((job) => job.category === category);
-    if (jobType) jobs = jobs.filter((job) => job.job_type === jobType);
-    if (level) jobs = jobs.filter((job) => job.experience_level === level);
-  } else {
-    jobs = searchJobs(query, {
-      category: category || undefined,
-      job_type: jobType || undefined,
-      experience_level: level || undefined,
-    });
+  const baseJobs = allJobs || mockJobs.filter((j) => j.is_active);
+
+  let jobs = baseJobs;
+  if (category === "remote") {
+    jobs = baseJobs.filter((j) => j.job_type === "remote");
+  } else if (category) {
+    jobs = baseJobs.filter((j) => j.category === category);
   }
+
+  const setCategory = (val: string) => {
+    if (val) {
+      router.push(`/jobs?category=${encodeURIComponent(val)}`);
+    } else {
+      router.push("/jobs");
+    }
+  };
 
   return (
     <div className="animate-page-in">
       {/* Page header */}
-      <div className="bg-tpa-dark border-b border-tpa-dark-secondary">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
-          <p className="animate-hero-badge text-sm font-body text-tpa-gold font-semibold tracking-wider uppercase mb-2">
-            <span className="mr-1.5">◆</span>Job Board
+      <div className="bg-white border-b border-comet-border">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <p className="text-xs font-body font-medium tracking-widest uppercase text-comet-muted mb-2">
+            Job Board
           </p>
-          <h1 className="animate-hero-title text-3xl sm:text-4xl font-bold font-heading text-tpa-hero-text mb-3">
-            Browse <em className="italic text-tpa-gold">AI Jobs</em>
+          <h1 className="font-heading font-bold text-3xl text-comet-text mb-1">
+            Open roles
           </h1>
-          <p className="animate-hero-subtitle text-tpa-hero-text/60 font-body max-w-xl">
-            Real AI opportunities from verified employers. Apply directly or through Prompt Academy&apos;s screening channel.
+          <p className="text-sm text-comet-muted font-body">
+            {baseJobs.length} positions · Updated today
           </p>
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        <RevealOnScroll>
-          <div className="mb-6">
-            <SearchBar defaultValue={query} />
+      {/* Filter bar */}
+      <div className="sticky top-14 z-10 bg-white border-b border-comet-border">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-1.5 py-3 overflow-x-auto no-scrollbar">
+            {FILTER_TABS.map((tab) => (
+              <button
+                key={tab.label}
+                onClick={() => setCategory(tab.value)}
+                className={cn(
+                  "flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium font-body transition-colors whitespace-nowrap",
+                  category === tab.value
+                    ? "bg-comet-indigo text-white"
+                    : "bg-comet-surface text-comet-muted hover:text-comet-text hover:bg-comet-border"
+                )}
+              >
+                {tab.label}
+              </button>
+            ))}
           </div>
-        </RevealOnScroll>
-
-        <RevealOnScroll delay={100}>
-          <div className="mb-8">
-            <JobFilters />
-          </div>
-        </RevealOnScroll>
-
-        <div>
-          <div className="flex items-center justify-between mb-4">
-            <p className="text-sm font-body text-tpa-text/60">
-              {jobs.length} {jobs.length === 1 ? "job" : "jobs"} found
-              {query && (
-                <span>
-                  {" "}for &ldquo;<span className="font-medium text-tpa-text">{query}</span>&rdquo;
-                </span>
-              )}
-            </p>
-          </div>
-
-          {jobs.length > 0 ? (
-            <div className="space-y-4">
-              {jobs.map((job) => (
-                <JobCard key={job.id} job={job} />
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-16">
-              <div className="text-4xl mb-4">🔍</div>
-              <h3 className="text-lg font-semibold font-heading text-tpa-text mb-2">
-                No jobs found
-              </h3>
-              <p className="text-tpa-text/60 font-body text-sm">
-                Try adjusting your search or filters to find what you&apos;re looking for.
-              </p>
-            </div>
-          )}
         </div>
+      </div>
+
+      {/* Job list */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        {jobs.length > 0 ? (
+          <div className="border border-comet-border rounded-lg overflow-hidden bg-white">
+            {jobs.map((job) => (
+              <JobRow key={job.id} job={job} />
+            ))}
+          </div>
+        ) : (
+          <div className="py-16 text-center">
+            <p className="font-heading font-semibold text-comet-text mb-1">No roles match your filters.</p>
+            <p className="text-sm text-comet-muted font-body mb-4">Try a different category.</p>
+            <button
+              onClick={() => setCategory("")}
+              className="text-sm font-medium text-comet-indigo hover:underline font-body"
+            >
+              Clear filters
+            </button>
+          </div>
+        )}
+
+        {jobs.length > 0 && (
+          <p className="text-xs text-comet-muted font-body text-center mt-4">
+            Showing {jobs.length} of {baseJobs.length} roles
+          </p>
+        )}
       </div>
     </div>
   );
@@ -122,12 +171,13 @@ export default function JobsPage() {
   return (
     <Suspense
       fallback={
-        <div className="max-w-6xl mx-auto px-4 py-12">
-          <div className="animate-pulse space-y-4">
-            <div className="h-8 bg-tpa-border rounded w-1/3" />
-            <div className="h-12 bg-tpa-border rounded" />
-            <div className="h-40 bg-tpa-border rounded" />
-            <div className="h-40 bg-tpa-border rounded" />
+        <div className="max-w-4xl mx-auto px-4 py-12">
+          <div className="animate-pulse space-y-3">
+            <div className="h-6 bg-comet-surface rounded w-1/4" />
+            <div className="h-10 bg-comet-surface rounded w-1/2" />
+            <div className="h-16 bg-comet-surface rounded" />
+            <div className="h-16 bg-comet-surface rounded" />
+            <div className="h-16 bg-comet-surface rounded" />
           </div>
         </div>
       }
