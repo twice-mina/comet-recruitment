@@ -55,10 +55,10 @@ export function JobCard({ job }: { job: Job }) {
       variants={staggerItem}
       whileHover={{ y: -2, boxShadow: "0 8px 30px rgba(0,0,0,0.08)" }}
       transition={{ duration: 0.2, ease: "easeOut" }}
-      className="flex items-start justify-between p-5 bg-white border border-comet-border rounded-xl cursor-pointer"
+      className="flex flex-col justify-between p-5 bg-white border border-comet-border rounded-xl cursor-pointer h-full"
     >
-      {/* Left: logo + info */}
-      <div className="flex items-start gap-4 min-w-0 flex-1">
+      {/* Top: logo + info */}
+      <div className="flex items-start gap-4 flex-1">
         {/* Company logo */}
         <div className="w-10 h-10 rounded-lg bg-comet-indigo-lt border border-comet-border flex items-center justify-center flex-shrink-0 mt-0.5">
           <span className="text-sm font-bold font-heading text-comet-indigo">
@@ -66,36 +66,33 @@ export function JobCard({ job }: { job: Job }) {
           </span>
         </div>
 
-        <div className="min-w-0">
-          <Link href={`/jobs/${job.id}`} className="block group">
-            <h3 className="font-heading font-semibold text-base text-comet-text group-hover:text-comet-indigo transition-colors truncate mb-0.5">
-              {job.title}
-            </h3>
-          </Link>
-          <p className="text-sm text-comet-muted font-body mb-2.5">
-            {displayCompany}
-            {job.location && <> · {job.location}</>}
-            {job.salary_min && job.salary_max && (
-              <>
-                {" "}
-                ·{" "}
-                <span className="text-comet-text font-medium">
-                  {formatSalary(job.salary_min, job.salary_max)}
-                </span>
-              </>
-            )}
-          </p>
+        <div className="flex-1 min-w-0 flex flex-col">
+          <div className="flex-1">
+            <Link href={`/jobs/${job.id}`} className="block group">
+              <h3 className="font-heading font-semibold text-base text-comet-text group-hover:text-comet-indigo transition-colors leading-snug mb-0.5">
+                {job.title}
+              </h3>
+            </Link>
+            <p className="text-sm text-comet-muted font-body mb-2.5">
+              {job.location}
+            </p>
+          </div>
           {/* Tag pills */}
-          <div className="flex flex-wrap gap-1.5">
+          <div className="flex flex-wrap gap-1.5 mt-3">
             <TagPill>{typeLabel}</TagPill>
             {job.category && <TagPill>{job.category}</TagPill>}
             <TagPill className="capitalize">{experienceLabel}</TagPill>
+            {job.salary_min && job.salary_max && (
+              <TagPill className="text-comet-text font-medium">
+                {formatSalary(job.salary_min, job.salary_max)}
+              </TagPill>
+            )}
           </div>
         </div>
       </div>
 
-      {/* Right: Easy Apply badge + Apply button */}
-      <div className="flex flex-col items-end gap-2 flex-shrink-0 ml-4">
+      {/* Bottom: Easy Apply badge + Apply button */}
+      <div className="flex items-center justify-between mt-4 pt-3 border-t border-comet-border">
         <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium font-body bg-comet-indigo-lt text-comet-indigo border border-comet-indigo/20">
           ✦ Easy Apply
         </span>

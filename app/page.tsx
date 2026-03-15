@@ -59,19 +59,18 @@ export default function HomePage() {
         <div className="relative z-10 flex flex-col items-center text-center px-4 pt-32 pb-48 flex-1">
           {/* Eyebrow */}
           <p className="text-xs tracking-[0.25em] uppercase text-white/40 mb-6 font-body font-medium">
-            Roles Worth Applying For
+            For People Who Are Done Waiting
           </p>
 
           {/* H1 */}
           <h1 className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight max-w-4xl mb-6 uppercase tracking-tight">
-            Your next role,{" "}
-            <span className="text-[#F97316]">already shortlisted.</span>
+            Get Hired.{" "}
+            <span className="text-[#F97316]">Not Ghosted.</span>
           </h1>
 
           {/* Subline */}
           <p className="text-white/60 text-base sm:text-lg max-w-lg mb-8 font-body leading-relaxed">
-            Browse hand-picked roles from top companies. Apply once — we handle
-            the screening and make the introduction.
+            We hand-pick roles, screen your application, and put you directly in front of the hiring manager. No black hole. No silence. Just interviews.
           </p>
 
           {/* Hero search bar */}
@@ -99,8 +98,11 @@ export default function HomePage() {
               </motion.button>
             </div>
 
-            {/* Ghost link below search */}
-            <div className="mt-4">
+            {/* Social proof + ghost link below search */}
+            <div className="mt-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+              <p className="text-xs font-body text-white/40">
+                Join 2,400+ people who found their next role through Comet
+              </p>
               <Link
                 href="/about"
                 className="text-sm font-body text-white/40 hover:text-white/70 transition-colors"
@@ -113,7 +115,7 @@ export default function HomePage() {
 
         {/* Peeking job cards — overlap into section below */}
         <div className="absolute bottom-0 left-0 right-0 z-20 px-4 sm:px-8 translate-y-1/2">
-          <StaggerList className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+          <StaggerList className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
             {featuredJobs.map((job) => (
               <StaggerItem key={job.id}>
                 <JobCard job={job} />
@@ -158,15 +160,15 @@ export default function HomePage() {
                 <ol className="space-y-6">
                   {[
                     [
-                      "Browse curated roles",
+                      "Browse roles we've personally vetted",
                       "Every listing is hand-picked — no noise, no scraped junk.",
                     ],
                     [
-                      "Apply in minutes — no cover letter needed",
+                      "Apply in under 3 minutes — no cover letter",
                       "Answer a few focused questions that show your fit.",
                     ],
                     [
-                      "We screen and advocate for you",
+                      "We advocate for you directly with the company",
                       "We deliver your profile directly to the hiring team with our endorsement.",
                     ],
                   ].map(([title, desc], i) => (
@@ -234,26 +236,26 @@ export default function HomePage() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12">
               <div>
                 <p className="font-heading font-bold text-sm text-comet-text mb-2">
-                  Curated, not scraped
+                  No more black holes
                 </p>
                 <p className="text-sm text-comet-muted font-body leading-relaxed">
-                  Every role is reviewed before it goes live. No auto-imported junk.
+                  Your application is reviewed by a real person, not an ATS algorithm.
                 </p>
               </div>
               <div>
                 <p className="font-heading font-bold text-sm text-comet-text mb-2">
-                  Screened before you see them
+                  We fight for you
                 </p>
                 <p className="text-sm text-comet-muted font-body leading-relaxed">
-                  Candidates arrive pre-qualified — companies only see people worth their time.
+                  When you apply through Comet, we make a personal introduction to the hiring team.
                 </p>
               </div>
               <div>
                 <p className="font-heading font-bold text-sm text-comet-text mb-2">
-                  Fast by design
+                  Faster than anywhere else
                 </p>
                 <p className="text-sm text-comet-muted font-body leading-relaxed">
-                  Most placements close in under 2 weeks. Speed is a feature, not a promise.
+                  Most of our placements happen within 10 days.
                 </p>
               </div>
             </div>
@@ -266,10 +268,10 @@ export default function HomePage() {
         <section className="bg-white">
           <div className="max-w-2xl mx-auto px-4 sm:px-6 py-16 text-center">
             <h2 className="font-heading font-bold text-2xl text-comet-text mb-3 uppercase tracking-tight">
-              Ready to find your next role?
+              Your Next Job Is One Application Away.
             </h2>
             <p className="text-comet-muted font-body mb-8 text-sm">
-              Hand-picked roles, fast screening, direct introductions.
+              Thousands of people found their role through Comet. You&apos;re next.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <motion.div {...tapProps}>
