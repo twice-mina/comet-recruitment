@@ -19,28 +19,28 @@ env:
   # APP CONFIGURATION
   # ============================================
   - variable: NEXT_PUBLIC_APP_NAME
-    value: "Email Split Test"
+    value: "Comet Recruitment"
 
   - variable: NEXT_PUBLIC_APP_DESCRIPTION
-    value: "Email split testing application"
+    value: "Comet Recruitment application"
 
   - variable: NEXT_PUBLIC_APP_URL
-    value: https://YOUR_DOMAIN
+    value: https://comet-73633.web.app
 
   # ============================================
   # FIREBASE CONFIGURATION
   # ============================================
   - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
-    value: YOUR_PROJECT_ID
+    value: comet-73633
 
   - variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
-    value: YOUR_PROJECT_ID.firebaseapp.com
+    value: comet-73633.firebaseapp.com
 
   - variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
-    value: YOUR_PROJECT_ID.firebasestorage.app
+    value: comet-73633.firebasestorage.app
 
   - variable: GOOGLE_CLOUD_PROJECT
-    value: YOUR_PROJECT_ID
+    value: comet-73633
 
   # ============================================
   # SECRETS (set via firebase apphosting:secrets:set)
