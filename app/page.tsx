@@ -113,9 +113,9 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Peeking job cards — overlap into section below */}
-        <div className="absolute bottom-0 left-0 right-0 z-20 px-4 sm:px-8 translate-y-1/2">
-          <StaggerList className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
+        {/* Peeking job cards — desktop only */}
+        <div className="absolute bottom-0 left-0 right-0 z-20 px-4 sm:px-8 translate-y-1/2 hidden md:block">
+          <StaggerList className="max-w-5xl mx-auto grid grid-cols-3 gap-4 items-stretch">
             {featuredJobs.map((job) => (
               <StaggerItem key={job.id}>
                 <JobCard job={job} />
@@ -127,7 +127,16 @@ export default function HomePage() {
 
       {/* ── Spacer for overlapping cards + "View all" link ── */}
       <FadeInSection>
-        <section className="bg-comet-surface border-b border-comet-border pt-44 pb-10">
+        <section className="bg-comet-surface border-b border-comet-border pt-8 md:pt-44 pb-10">
+          {/* Mobile: show 3 cards stacked normally (no peek effect) */}
+          <div className="md:hidden px-4 mb-8">
+            <div className="flex flex-col gap-3">
+              {featuredJobs.map((job) => (
+                <JobCard key={job.id} job={job} />
+              ))}
+            </div>
+          </div>
+
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between">
               <p className="text-xs font-body font-medium tracking-widest uppercase text-comet-muted">
