@@ -1,0 +1,396 @@
+[
+  {
+    "id": "job-001",
+    "title": "Software Engineer",
+    "location": "San Francisco, CA",
+    "type": "Full-time",
+    "department": "Engineering",
+    "salary": "$130K – $160K",
+    "remote": false,
+    "description": "a major enterprise client and our company Partnership our company builds AI agents trusted by the largest B2C companies in the world. Industry leaders like a major enterprise client trust our company with their most complex support and operations workflows across voice, chat, and email. If being a part of this resonates with you, please apply! The Role",
+    "requirements": [
+      "You'll contribute to projects across our stack. Some examples:",
+      "Atlas: Building features for our AI assistant: charts and alerts in Slack, natural language queries, and expanding Atlas to manage platform resources",
+      "Activity Stream: Log visualization with filters, timestamps, and frequency charts to give visibility into agent behavior",
+      "Dynamic knowledge: Adding time-based knowledge (like ongoing incidents) that auto-updates from sources like status pages",
+      "Agent memory: Conversation awareness and recent interaction lookups so agents remember context across sessions",
+      "You'll be paired with senior engineers on larger initiatives while also owning smaller projects end-to-end as you ramp up."
+    ],
+    "easyApply": true,
+    "postedAt": "2026-03-15"
+  },
+  {
+    "id": "job-002",
+    "title": "Software Engineer, Fullstack",
+    "location": "New York, NY",
+    "type": "Full-time",
+    "department": "Engineering",
+    "salary": "$120K – $150K",
+    "remote": false,
+    "description": "As an Early Career Software Engineer, you’ll help shape core user experiences and accelerate how people discover value in our product. You'll tackle meaningful challenges with increasing autonomy, crafting code that millions of users will experience. You'll take ownership of projects that matter, make critical technical decisions, and contribute your unique perspective to our product vision. Working alongside passionate experts across design, product, and data, you'll help shape the future of...",
+    "requirements": [
+      "Plan, build, and ship product features from conception to launch, then iterate based on insights and user feedback.",
+      "Improve performance, reliability, and quality of key experiences used by millions of users and thousands of organizations.",
+      "Run experiments that drive activation, retention, collaboration, and revenue, partnering with design, data science, and research.",
+      "Build internal tools and platform improvements that help all engineers ship quickly and safely.",
+      "Contribute to team norms, code quality, and a culture of learning and thoughtful tradeoffs.",
+      "Areas you might work on"
+    ],
+    "easyApply": true,
+    "postedAt": "2026-03-14"
+  },
+  {
+    "id": "job-003",
+    "title": "Senior Software Engineer – Backend",
+    "location": "Remote",
+    "type": "Full-time",
+    "department": "Engineering",
+    "salary": "$170K – $220K",
+    "remote": true,
+    "description": "Collaboration: Work closely with product managers and other stakeholders to define and implement new features that meet product and customer needs. Code Quality: Write clean, maintainable and efficient code. Testing & Debugging: Develop automated tests to ensure the quality and reliability of the codebase. Troubleshoot and resolve issues.",
+    "requirements": [
+      "5+ years of experience with extensive experience in software engineering with a proven track record of shipping successful projects.",
+      "Prior experience with cross functional collaboration, communication and project management skills.",
+      "Demonstrated leadership skills and the ability to mentor and guide junior engineers.",
+      "Ability to work with operations, product, design, and data science.",
+      "$180,000 - $270,000 a year",
+      "The target base salary for this position ranges from $180,000/year to $270,000/year in San Francisco and New York."
+    ],
+    "easyApply": true,
+    "postedAt": "2026-03-13"
+  },
+  {
+    "id": "job-004",
+    "title": "Senior Software Engineer, Ad Technology",
+    "location": "Seattle, WA",
+    "type": "Full-time",
+    "department": "Engineering",
+    "salary": "$180K – $230K",
+    "remote": false,
+    "description": "About the Team A highly scalable and highly available real-time advertising platform is crucial for supporting and growing our advertising business. The mission of the Ad Engineering Team is to build this platform. We are hiring a Senior Software Engineer for the Advertising Platform to play a vital role in this mission. If you bring extensive experience building complex systems, love great technology at scale, enjoy mentoring, jumping in, and figuring things out in any system, this role is f...",
+    "requirements": [
+      "Work alongside a highly skilled engineering team to design, develop, and maintain large-scale, highly performing, real-time applications",
+      "Own building features, driving directly with the product, and other engineering teams",
+      "Demonstrate excellent communication skills in working with technical and non-technical audiences",
+      "Be an evangelist for best practices across all functions – developers, QA, and infrastructure/ops",
+      "Be an evangelist for platform innovation and reuse",
+      "Deliver top-quality software in a timely fashion"
+    ],
+    "easyApply": true,
+    "postedAt": "2026-03-12"
+  },
+  {
+    "id": "job-005",
+    "title": "Software Engineer – Frontend",
+    "location": "Remote",
+    "type": "Full-time",
+    "department": "Engineering",
+    "salary": "$140K – $180K",
+    "remote": true,
+    "description": "Job Description: On our team, our approach to flexible work is centered on trust and optimized for culture, connection, clarity, and the evolving needs of our business. The work location of this role is hybrid, meaning it will be performed both from home and from a we office on select days, as determined by the business needs of the team. Responsibilities:",
+    "requirements": [
+      "BA/BS in Computer Science or related technical field or equivalent practical experience",
+      "1+ years of industry experience in software design, development, and algorithm related solutions",
+      "Experience programming in languages such as Javascript, HTML, CSS, Python, Java, etc.",
+      "MS or PhD in Computer Science or related technical discipline .",
+      "Experience writing clean JavaScript including experience with modern frameworks (Angular/Ember/React) and debugging tools (Chrome Dev Tools, etc. )",
+      "Expert-level knowledge of Ember."
+    ],
+    "easyApply": true,
+    "postedAt": "2026-03-11"
+  },
+  {
+    "id": "job-006",
+    "title": "Backend Software Engineer",
+    "location": "Los Angeles, CA",
+    "type": "Full-time",
+    "department": "Engineering",
+    "salary": "$140K – $175K",
+    "remote": false,
+    "description": "Program Duration The internship program will run from June 1 through August 28, 2026. Where you’ll work",
+    "requirements": [
+      "Collaborate across our Engineering team on the expansion of our service platform",
+      "Develop and operate scalable and resilient distributed services that run on Amazon Web Services (AWS)",
+      "Build large scale distributed systems that handle billions of data events a day",
+      "Write unit and integration tests.",
+      "Access to cutting-edge Generative AI tools and the opportunity to apply them in real-world engineering work",
+      "Completed relevant project experience (i.e. hackathons, personal projects, GitHub, Open Source, volunteer coding experience etc.)"
+    ],
+    "easyApply": true,
+    "postedAt": "2026-03-10"
+  },
+  {
+    "id": "job-007",
+    "title": "Product Manager",
+    "location": "New York, NY",
+    "type": "Full-time",
+    "department": "Product",
+    "salary": "$160K – $200K",
+    "remote": false,
+    "description": "defining success, prioritizing problems and identifying the best stategies, considering wider organizational and company context. Adapt and adjust your strategies to reflect learnings and changes in context Identify and drive consensus for how to prioritize and realize the most significant opportunities in your product area. Identify when to stop as well as when to start investment Work with a cross-functional team to define a product vision, develop a roadmap and drive progress against goals...",
+    "requirements": [
+      "8+ years of relevant industry experience with at least 3 years in Product Management",
+      "Bachelor's degree (or relevant degree equivalent): STEM subject ideal but not essential (Computer Science, Engineering, Information Systems, Analytics, Mathematics, Physics, Applied Sciences)",
+      "Proven experience to drive a step change in the performance of a product and the effectiveness of the team that delivers that product",
+      "Extensive understanding in analyzing large scale, complex data sets and making effective decisions based on data",
+      "Experience integrating a diverse set of requirements from a broad set of users as well as context into a single coherent product strategy",
+      "Demonstrated experience in communication, bringing extreme clarity to complex messages"
+    ],
+    "easyApply": true,
+    "postedAt": "2026-03-15"
+  },
+  {
+    "id": "job-008",
+    "title": "Senior Product Manager",
+    "location": "Remote",
+    "type": "Full-time",
+    "department": "Product",
+    "salary": "$190K – $240K",
+    "remote": true,
+    "description": "Description The Product/Senior Product Manager, our customer support platform collaborates across Product Operations, Finance, Engineering, Retail, and Sales teams to define the roadmap and launch new device protection service experiences for our customer support platform. Responsibilities",
+    "requirements": [
+      "6+ years in product management and/or product marketing, including ownership of a full product or service lifecycle from concept to launch.",
+      "Demonstrated success working cross-functionally with operations, finance, legal, engineering, and marketing.",
+      "10+ years in product management and/or product marketing, including ownership of a full product or service lifecycle from concept to launch.",
+      "Experience with device protection programs, warranty or service operations, including post-purchase services models such as repair, claims, and customer support.",
+      "Ability to simplify operational and financial complexity into clear product strategies and customer value propositions.",
+      "Excellent written and verbal communication skills; able to influence through storytelling, data, and collaboration."
+    ],
+    "easyApply": true,
+    "postedAt": "2026-03-14"
+  },
+  {
+    "id": "job-009",
+    "title": "Associate Product Manager",
+    "location": "Remote",
+    "type": "Full-time",
+    "department": "Product",
+    "salary": "$120K – $155K",
+    "remote": true,
+    "description": "we is a Flex First team There’s no one-size fits all approach to how we do our best work. Our employees have the flexibility to choose where they do their best work—whether it’s from home, an office, or your favorite coffee shop—while staying connected and building community through regular in-person events. Learn more about our flexible approach to where we work. Overview",
+    "requirements": [
+      "Exhibit a deep passion for technology and product design - either from a technical degree, personal projects, or experience in business, strategy, or software-related roles.",
+      "Demonstrated ability to come up with product solutions for customer pain points.",
+      "Leadership potential and natural ability to influence and empower diverse teams.",
+      "For US based candidates, the base pay ranges for a successful candidate are listed below.",
+      "$137,000—$144,500 USD",
+      "$131,000—$138,500 USD"
+    ],
+    "easyApply": true,
+    "postedAt": "2026-03-13"
+  },
+  {
+    "id": "job-010",
+    "title": "Product Manager, Growth",
+    "location": "New York, NY",
+    "type": "Full-time",
+    "department": "Product",
+    "salary": "$145K – $185K",
+    "remote": false,
+    "description": "On our team, you'll find an environment that champions kindness and respect, values diverse perspectives, and upholds inclusivity at every turn. We believe that every member of our team adds invaluable insights and abilities that drive we forward. In our pursuit of excellence, we foster a culture of trust and integrity, collaboration, and mutual growth. Together, we are ambitiously building something extraordinary. Your unique talents and insights will play a crucial role in our shared succes...",
+    "requirements": [
+      "2–3 years of experience in Product Management, Project Management, Business Analysis, or a related role (preferably in fintech, capital markets, or SaaS).",
+      "Ability to manage multiple workstreams and follow structured processes.",
+      "Comfortable testing APIs (e.g., Postman) and reviewing API responses.",
+      "Familiarity with configuration files (YAML/JSON) and basic technical troubleshooting.",
+      "Detail-oriented, proactive, and collaborative.",
+      "Exposure to trading systems or financial technology."
+    ],
+    "easyApply": true,
+    "postedAt": "2026-03-12"
+  },
+  {
+    "id": "job-011",
+    "title": "Junior UI/UX Designer",
+    "location": "Remote",
+    "type": "Full-time",
+    "department": "Design",
+    "salary": "$80K – $110K",
+    "remote": true,
+    "description": "Created in 2016, we have always taken a market-leading and collaborative approach to cloud deployment and management. In fact, our product roadmap is greatly influenced by the regular feedback we receive from having seen companies deploy AVD into production environments several thousand times using our technology. Today, we are used in over 50 countries by more than 15,000 organizations of every size and vertical. We’re committed to delivering exceptional service and support, which starts with i...",
+    "requirements": [
+      "Collaborate with product managers, developers, and other designers to help maintain and evolve design systems",
+      "Create wireframes, mockups, and interactive prototypes",
+      "Support accessibility and usability practices",
+      "Improve designs and systems based on internal and external feedback",
+      "Participate in user research, testing, and feedback sessions",
+      "Create and maintain UI component libraries"
+    ],
+    "easyApply": true,
+    "postedAt": "2026-03-15"
+  },
+  {
+    "id": "job-012",
+    "title": "Senior UX Designer",
+    "location": "Austin, TX",
+    "type": "Full-time",
+    "department": "Design",
+    "salary": "$130K – $165K",
+    "remote": false,
+    "description": "San Mateo, CA You are equal parts systems thinker and craft driven designer. You bring clarity to complex ecosystems, translating identity frameworks, account services, safety policies, and platform technologies into seamless, intuitive player experiences. You leverage emerging capabilities to design secure, scalable solutions that build trust across regions and devices. You ground every decision in research, experimentation, and measurable outcomes, and you thrive in ambiguity, defining stru...",
+    "requirements": [
+      "BA/BS in Interaction or Product Design, Human Factors, or equivalent experience.",
+      "5+ years of product or UX design experience, including platform or systems-level work.",
+      "A portfolio that showcases thoughtful, simple, deliberate & intuitive design, with extraordinary interaction, motion, and visuals.",
+      "Experience shipping complex, multi-surface experiences (console, mobile, web, or connected devices).",
+      "Ability to operate independently in ambiguous, technicall"
+    ],
+    "easyApply": true,
+    "postedAt": "2026-03-14"
+  },
+  {
+    "id": "job-013",
+    "title": "Product Designer",
+    "location": "San Francisco, CA",
+    "type": "Full-time",
+    "department": "Design",
+    "salary": "$150K – $195K",
+    "remote": false,
+    "description": "This role will be based in Mountain View or San Francisco. On our team, our approach to flexible work is centered on trust and optimized for culture, connection, clarity, and the evolving needs of our business. The work location of this role is hybrid, meaning it will be performed both from home and from a we office on select days, as determined by the business needs of the team. we’s vision is to create economic opportunity for every member of the global workforce. Our global Product Design ...",
+    "requirements": [
+      "BA/BS degree in graphic design, design communication, human-computer interaction, or related field or equivalent combination of education and experience",
+      "Experience participating in the complete product development lifecycle of web and/or software applications",
+      "2+ years of experience in user experience design or industry experience (corporate, software, web or agency)",
+      "Ability to deliver small to medium-scale projects independently and/or owning components of larger projects with support from senior ICs and Managers",
+      "Ability to influence decisions on assigned projects by actively engaging and adding value in team discussions",
+      "Ability to deliver solutions for structured problems that have few dependencies on other products/teams"
+    ],
+    "easyApply": true,
+    "postedAt": "2026-03-13"
+  },
+  {
+    "id": "job-014",
+    "title": "Senior Product Designer",
+    "location": "New York, NY",
+    "type": "Full-time",
+    "department": "Design",
+    "salary": "$165K – $205K",
+    "remote": false,
+    "description": "Design flows and experiences that are incredibly simple and elegant for our supported platforms Design new experiences or layouts that evolve or define visual systems Give and solicit feedback from other designers in order to continually raise our bar for quality",
+    "requirements": [
+      "Give and solicit feedback from other designers in order to continually raise our bar for quality",
+      "Partner with product managers, engineers, UX researchers and content strategists to iterate and oversee the user experience of a product from conception until launch",
+      "Bachelor's degree in Design, Human-Computer Interaction, Computer Science, or a related field",
+      "2+ years designing software products with a focus on user experience, interaction, and visual design that meet business objectives",
+      "Familiarity with prototyping tools and building low-fidelity mock ups",
+      "Experience showcasing your end-to-end design process across multiple projects, that include interaction and visual design artifacts and high-fidelity prototypes"
+    ],
+    "easyApply": true,
+    "postedAt": "2026-03-12"
+  },
+  {
+    "id": "job-015",
+    "title": "Marketing Operations Manager",
+    "location": "New York, NY",
+    "type": "Full-time",
+    "department": "Marketing",
+    "salary": "$90K – $120K",
+    "remote": false,
+    "description": "• Community connector: You’re always thinking about how to improve your and your community’s future. You’re passionate about building a global community where everyone can feel seen and inspired in beauty. • Courageous but chill: Wherever you come from, you’re driven by the hardworking New York spirit that we embodies. You’re flexible and ready to get the job done, but you’re humble and make moves thoughtfully. You strive for quality, have fun doing it, and always have the greater good of the...",
+    "requirements": [
+      "Coordinate Market Launches & Activations",
+      "Project manage marketing needs for campaigns and launches in local markets",
+      "Support teams in adapting global campaigns to fit local market needs",
+      "Ensure marketing materials, messaging, and activations are delivered on time and aligned with the brand",
+      "Global–Local Coordination",
+      "Serve as the main point of contact between Global Marketing and local market teams"
+    ],
+    "easyApply": true,
+    "postedAt": "2026-03-15"
+  },
+  {
+    "id": "job-016",
+    "title": "Brand Marketing Manager",
+    "location": "Los Angeles, CA",
+    "type": "Full-time",
+    "department": "Marketing",
+    "salary": "$85K – $115K",
+    "remote": false,
+    "description": "Inspired by the Mediterranean, our brand comes to life through our iconic turquoise packaging and signature fragrance, for an exotic experience that transports the senses. Our original our brand Treatment pioneered oil-infused haircare and sparked global interest in argan oil. At the heart of our brand is the stylist community that inspires us to create effective and easy-to-use products. Today, our mission remains unchanged: to pioneer beauty innovations while making a positive impact. We su...",
+    "requirements": [
+      "Bachelor’s degree in Marketing, or a related field;",
+      "5+ years of Fragrance marketing experience required; preferably in luxury/premium categories",
+      "Proficient in MS Office Suite (Word, E"
+    ],
+    "easyApply": true,
+    "postedAt": "2026-03-14"
+  },
+  {
+    "id": "job-017",
+    "title": "Global Social Media Manager",
+    "location": "New York, NY",
+    "type": "Full-time",
+    "department": "Marketing",
+    "salary": "$95K – $125K",
+    "remote": false,
+    "description": "The Manager, Global Social Media & Innovation will collaborate cross-functionally with regional social teams, e-commerce, paid media, and other key stakeholders to ensure global consistency while enabling locally relevant execution across markets. They will actively monitor the global social and competitive landscape, develop benchmarking and performance insights, and translate trends into forward-looking strategies that elevate the future of we’ content, community, and commerce ecosystem. Th...",
+    "requirements": [
+      "Lead global content, community, and social commerce strategies across major social platforms, overseeing official brand accounts, content calendars, and execution of strategic initiatives.",
+      "Oversee daily content publishing and platform management across global social channels, supporting seasonal campaigns, global events, and culturally relevant moments.",
+      "Manage global social content planning and asset coordination, including creative briefs, campaign support, and live-event social execution.",
+      "Monitor social trends, emerging platforms, and competitive activity to inform forward-looking strategies and content recommendations.",
+      "Lead social reporting and analytics, delivering performance insights and educating internal teams on platform trends and best practices.",
+      "Manage and evolve global social commerce channels (social media platforms and TikTok), maintaining brand shops, reporting on performance, and identifying optimization opportunities."
+    ],
+    "easyApply": true,
+    "postedAt": "2026-03-13"
+  },
+  {
+    "id": "job-018",
+    "title": "Data Analyst",
+    "location": "Remote",
+    "type": "Full-time",
+    "department": "Data & Analytics",
+    "salary": "$90K – $120K",
+    "remote": true,
+    "description": "Always Build Trust - Say what you mean, mean what you say, and do what you say you’re going to do. We are all owners. We are one team Never Stop Growing - Change IS the constant. Stay hungry and curious. Be relentless in the pursuit of progress Find a way - Never settle, no excuses, nothing is impossible. Just make it happen",
+    "requirements": [
+      "Collaborate with the Core Experience team to drive the ideation and rigorous analysis of product experiments.",
+      "Partner with Product, Finance, and Operations to build and maintain robust reports and dashboards specifically for our Core Experience product lines.",
+      "Write and optimize complex SQL queries to extract data from various sources for deep-dive analysis.",
+      "Utilize Databricks and DBT to transform raw data into clean, accessible datasets for the broader team.",
+      "Design and manage intuitive Tableau dashboards that track key performance indicators (KPIs) for Investing and Banking features.",
+      "Monitor customer behavior and product performance using Amplitude to identify opportunities for friction reduction and growth."
+    ],
+    "easyApply": true,
+    "postedAt": "2026-03-15"
+  },
+  {
+    "id": "job-019",
+    "title": "Data Analyst, Security Analytics",
+    "location": "Austin, TX",
+    "type": "Full-time",
+    "department": "Data & Analytics",
+    "salary": "$95K – $125K",
+    "remote": false,
+    "description": "The we Analytics Platform & Enablement team is expanding its capabilities to strengthen data-driven decision-making across a global direct-to-consumer business serving over 400 million customers. We are looking for a Data Analyst who will play a key role in building scalable data solutions and uncovering actionable insights that drive marketing performance and business growth. We're seeking someone curious about data, passionate about building analytical solutions, and eager to become a trust...",
+    "requirements": [
+      "2+ years of data analysis experience",
+      "Proficiency in SQL and Python or R",
+      "Experience with data visualization tools (Tableau, Looker)",
+      "Strong statistical analysis skills"
+    ],
+    "easyApply": true,
+    "postedAt": "2026-03-14"
+  },
+  {
+    "id": "job-020",
+    "title": "Business Analyst",
+    "location": "New York, NY",
+    "type": "Full-time",
+    "department": "Data & Analytics",
+    "salary": "$85K – $115K",
+    "remote": false,
+    "description": "Key Responsibilities Elicit, analyze, and document business requirements (BRDs, FRDs, acceptance criteria, process flows). Partner with stakeholders to translate business needs into system requirements for PI products (e.g., DRG review, HBA, COB, data mining, IBR).",
+    "requirements": [
+      "Education: Bachelor’s degree in Business, Healthcare Administration, Data Analytics, or related field (or equivalent experience).",
+      "3+ years as a Business Analyst in healthcare, payer, or PI environment.",
+      "Strong understanding of claims processing (professional, facility, pharmacy) and related transactions (837, 835, COB, EOBs).",
+      "Strong analytical and problem-solving abilities.",
+      "Proficiency in SQL/Excel; familiarity with BI tools a plus.",
+      "Ability to manage competing priorities and deliver within deadlines."
+    ],
+    "easyApply": true,
+    "postedAt": "2026-03-13"
+  }
+]
